@@ -1,6 +1,6 @@
 ﻿var Settings = {
     //The url that points to team city
-    teamCityUrl: 'http://tclive:8111',
+    teamCityUrl: 'https://ci-cs.entapps.co',
 
     //The main branch to show the master build status on the right hand panel on the screen
     mainBranch: '',
