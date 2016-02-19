@@ -3,7 +3,7 @@
     teamCityUrl: 'http://tclive:8111',
 
     //The main branch to show the master build status on the right hand panel on the screen
-    mainBranch: 'develop',
+    mainBranch: '',
 
     //Proxy to handle the cross domain ajax request.
     // This will need to be hosted on the relevant server e.g. proxy-node.js on Node.js or proxy-aspnet.ashx on IIS
