@@ -161,22 +161,13 @@ ul {
 
 .demo-panel {
     position: absolute;
-    top: 50%;
-    right: 0%;
-    width: 49%;
-    height: 35%;
-    background: yellow; border:solid #000; border-width: 0 10px 10px 0;
-    overflow: hidden;
-    z-index:1;
-}
-
-.demo-panel-history {
-    position: absolute;
     bottom: 0%;
     right: 0%;
     width: 49%;
-    height: 15%;
-    background: white; border:solid #000; border-width: 0 10px 10px 0; 
+    height: 50%;
+    background: black; border:solid #000; border-width: 0 10px 10px 0;
+    overflow: hidden;
+    z-index:1;
 }
 
 #left-panel {
@@ -255,7 +246,7 @@ ul {
 
     #main-build.success.c4 {
         background-image: url('./images/happy5.png');
-        background-size: 60%;
+        background-size: 50%;
         background-position: bottom right;
     }
 
@@ -353,12 +344,14 @@ ul {
     font-size: 2em;
     text-align: left;
     text-transform: lowercase;
+    padding-left: 3%;
 }
 
 #main-branch-status {
     font-size: 6em;
     text-align: left;
     text-transform: uppercase;
+    padding-left: 3%;
 }
 
 .build-type, .build-status {
@@ -376,6 +369,7 @@ ul {
 #main-branch-triggered-by {
     font-size: 2em;
     text-align: left;
+    padding-left: 3%;
 }
 
 #main-branch-name, #main-branch-triggered-by, #main-branch-status, ul li {
