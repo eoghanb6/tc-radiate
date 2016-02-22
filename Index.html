@@ -8,9 +8,9 @@
 <body>
 	<div class="page-loading" data-bind="showHide: isFirstLoad()"></div>
 	<div class="page-content" data-bind="showHide: !isFirstLoad()">
-	    
+	    <div class="build-panel"></div>
         <div class="build-panel-history">
-            <ul data-bind="foreach: { data: builds }">
+            <ul data-bind="foreach: { data: builds.slice(1, 2) }">
                 <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
@@ -23,15 +23,15 @@
                 </li>
             </ul>
         </div>
-        <div class="build-panel"></div>
+		<div class="dev-panel"></div>
         <div class="dev-panel-history"></div>
-	    <div class="dev-panel"></div>
-        <div class="accept-sel-panel-history"></div>
-        <div class="accept-sel-panel"></div>
+		<div class="accept-panel"></div>
         <div class="accept-panel-history"></div>
-        <div class="accept-panel"></div>
-        <div class="demo-panel-history"></div>
+		<div class="accept-sel-panel"></div>
+        <div class="accept-sel-panel-history"></div>
         <div class="demo-panel"></div>
+        <div class="demo-panel-history"></div>
+        
         
 
 	</div>
