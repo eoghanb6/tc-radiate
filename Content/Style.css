@@ -79,6 +79,106 @@ ul {
     clear: both;
 }
 
+.build-panel {
+    position: absolute;
+    top: 0%;
+    right: 50%;
+    width: 49%;
+    height: 35%;
+    background: red; border:solid #000; border-width: 0 10px 10px 0;
+    overflow: hidden;
+    z-index:1;
+}
+
+.build-panel-history {
+    position: absolute;
+    bottom: 50%;
+    right: 50%;
+    width: 49%;
+    height: 15%;
+    background: white; border:solid #000; border-width: 0 10px 10px 0; 
+}
+
+.dev-panel {
+    position: absolute;
+    top: 0%;
+    right: 0%;
+    width: 49%;
+    height: 35%;
+    background: blue; border:solid #000; border-width: 0 10px 10px 0;
+    overflow: hidden;
+    z-index:1;
+}
+
+.dev-panel-history {
+    position: absolute;
+    bottom: 50%;
+    right: 0%;
+    width: 49%;
+    height: 15%;
+    background: white; border:solid #000; border-width: 0 10px 10px 0; 
+}
+
+.accept-panel {
+    position: absolute;
+    top: 50%;
+    right: 50%;
+    width: 49%;
+    height: 15%;
+    background: green; border:solid #000; border-width: 0 10px 10px 0;
+    overflow: hidden;
+    z-index:1;
+}
+
+.accept-panel-history {
+    position: absolute;
+    bottom: 25%;
+    right: 50%;
+    width: 49%;
+    height: 10%;
+    background: white; border:solid #000; border-width: 0 10px 10px 0; 
+}
+
+.accept-sel-panel {
+    position: absolute;
+    bottom: 10%;
+    right: 50%;
+    width: 49%;
+    height: 14%;
+    background: green; border:solid #000; border-width: 0 10px 10px 0;
+    overflow: hidden;
+    z-index:1;
+}
+
+.accept-sel-panel-history {
+    position: absolute;
+    bottom: 0%;
+    right: 50%;
+    width: 49%;
+    height: 10%;
+    background: white; border:solid #000; border-width: 0 10px 10px 0; 
+}
+
+.demo-panel {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    width: 49%;
+    height: 35%;
+    background: yellow; border:solid #000; border-width: 0 10px 10px 0;
+    overflow: hidden;
+    z-index:1;
+}
+
+.demo-panel-history {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    width: 49%;
+    height: 15%;
+    background: white; border:solid #000; border-width: 0 10px 10px 0; 
+}
+
 #left-panel {
     position: absolute;
     bottom: 0;

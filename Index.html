@@ -8,41 +8,31 @@
 <body>
 	<div class="page-loading" data-bind="showHide: isFirstLoad()"></div>
 	<div class="page-content" data-bind="showHide: !isFirstLoad()">
-	    <div id="left-panel">
-	        <ul data-bind="foreach: { data: builds }">
-	            <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
-	                <div class="build-branch"  data-bind="text: description()"></div>
-	                <div class="build-type" data-bind="text: buildType"></div>
-	                <div class="clear"></div>
-	                <div class="build-status" data-bind="text: isRunning() ? '' : status"></div>
-	                <div class="clear"></div>
-	                <!-- ko if: hasProgress() -->
+	    
+        <div class="build-panel-history">
+            <ul data-bind="foreach: { data: builds }">
+                <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
+                    <div class="build-branch"  data-bind="text: description()"></div>
+                    <div class="build-type" data-bind="text: buildType"></div>
+                    <div class="clear"></div>
+                    <div class="build-status" data-bind="text: isRunning() ? '' : status"></div>
+                    <div class="clear"></div>
+                    <!-- ko if: hasProgress() -->
                        <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
                     <!-- /ko -->
-	            </li>
-	        </ul>
-	    </div>
-	    <div id="right-panel">
-	        <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
-	        <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass() }">
-	            <div id="main-branch-name">
-	                Build <span class="highlight" data-bind="text: mainBuild().number"></span>
-                    <!-- ko if: mainBuild().hasBranchName() -->
-                        on the <span data-bind="text: mainBuild().branchName"></span> branch
-                    <!-- /ko -->
-	            </div>
-	            <div id="main-branch-status" class="highlight" data-bind="text: mainBuild().status"></div>
-                <div id="main-branch-triggered-by">
-                    <!-- ko if: mainBuild().triggeredBy -->
-                    triggered by <span class="highlight" data-bind="text: mainBuild().triggeredBy"></span>
-                    <!-- /ko -->
-                    <!-- ko if: mainBuild().issueId-->
-                    for YouTrack item <span data-bind="text: mainBuild().issueId" class="highlight"></span>
-                    <!-- /ko -->
-                </div>
-	        </div>
-            <!-- /ko -->
-	    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="build-panel"></div>
+        <div class="dev-panel-history"></div>
+	    <div class="dev-panel"></div>
+        <div class="accept-sel-panel-history"></div>
+        <div class="accept-sel-panel"></div>
+        <div class="accept-panel-history"></div>
+        <div class="accept-panel"></div>
+        <div class="demo-panel-history"></div>
+        <div class="demo-panel"></div>
+        
 
 	</div>
     <div class="error-box" data-bind="showHide: hasError">
