@@ -83,7 +83,7 @@ ul {
     position: absolute;
     top: 0%;
     right: 50%;
-    width: 49%;
+    width: 48.5%;
     height: 35%;
     background: red; border:solid #000; border-width: 0 10px 10px 0;
     overflow: hidden;
@@ -93,7 +93,7 @@ ul {
 .build-panel-history {
     position: absolute;
     bottom: 47%;
-    right: 50%;
+    left: 0%;
     width: 50%;
     height: 16.5%;
     background: black; border:solid #000; border-width: 0 10px 10px 0; 
@@ -102,8 +102,8 @@ ul {
 .dev-panel {
     position: absolute;
     top: 0%;
-    right: 0%;
-    width: 49%;
+    left: 50%;
+    width: 48.5%;
     height: 35%;
     background: blue; border:solid #000; border-width: 0 10px 10px 0;
     overflow: hidden;
@@ -113,7 +113,6 @@ ul {
 .dev-panel-history {
     position: absolute;
     bottom: 50%;
-	left: 50%;
     right: 0%;
     width: 50%;
     height: 13.5%;
@@ -124,9 +123,9 @@ ul {
     position: absolute;
     top: 50%;
     right: 50%;
-    width: 49%;
+    width: 48.5%;
     height: 15%;
-    background: green; border:solid #000; border-width: 0 10px 10px 0;
+    background: #006400; border:solid #000; border-width: 0 10px 10px 0;
     overflow: hidden;
     z-index:1;
 }
@@ -135,18 +134,18 @@ ul {
     position: absolute;
     bottom: 25%;
     right: 50%;
-    width: 49%;
+    width: 48.5%;
     height: 10%;
-    background: white; border:solid #000; border-width: 0 10px 10px 0; 
+    background: grey; border:solid #000; border-width: 0 10px 10px 0; 
 }
 
 .accept-sel-panel {
     position: absolute;
     bottom: 10%;
     right: 50%;
-    width: 49%;
+    width: 48.5%;
     height: 14%;
-    background: green; border:solid #000; border-width: 0 10px 10px 0;
+    background: #006400; border:solid #000; border-width: 0 10px 10px 0;
     overflow: hidden;
     z-index:1;
 }
@@ -155,16 +154,16 @@ ul {
     position: absolute;
     bottom: 0%;
     right: 50%;
-    width: 49%;
+    width: 48.5%;
     height: 10%;
-    background: white; border:solid #000; border-width: 0 10px 10px 0; 
+    background: grey; border:solid #000; border-width: 0 10px 10px 0; 
 }
 
 .demo-panel {
     position: absolute;
     bottom: 0%;
     right: 0%;
-    width: 49.5%;
+    width: 50%;
     height: 50%;
     background: black; border:solid #000; border-width: 0 10px 10px 0;
     overflow: hidden;
