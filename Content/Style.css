@@ -92,11 +92,11 @@ ul {
 
 .build-panel-history {
     position: absolute;
-    bottom: 50%;
+    bottom: 47%;
     right: 50%;
-    width: 49%;
-    height: 15%;
-    background: white; border:solid #000; border-width: 0 10px 10px 0; 
+    width: 50%;
+    height: 16.5%;
+    background: black; border:solid #000; border-width: 0 10px 10px 0; 
 }
 
 .dev-panel {
@@ -113,10 +113,11 @@ ul {
 .dev-panel-history {
     position: absolute;
     bottom: 50%;
+	left: 50%;
     right: 0%;
-    width: 49%;
-    height: 15%;
-    background: white; border:solid #000; border-width: 0 10px 10px 0; 
+    width: 50%;
+    height: 13.5%;
+    background: black; border:solid #000; border-width: 0 10px 10px 0; 
 }
 
 .accept-panel {
@@ -163,7 +164,7 @@ ul {
     position: absolute;
     bottom: 0%;
     right: 0%;
-    width: 49%;
+    width: 49.5%;
     height: 50%;
     background: black; border:solid #000; border-width: 0 10px 10px 0;
     overflow: hidden;
