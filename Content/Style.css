@@ -159,7 +159,7 @@ ul {
     background: grey; border:solid #000; border-width: 0 10px 10px 0; 
 }
 
-.demo-panel {
+.history-panel {
     position: absolute;
     bottom: 0%;
     right: 0%;
