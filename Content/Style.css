@@ -339,7 +339,150 @@ ul {
         background-size: 50%;
         background-position: right;
     }
+#main-build.success.d0 {
+        background-image: url('./images/happy1.png');
+        background-size: 15%;
+        background-position: bottom right;
+    }
 
+    #main-build.failure.d0 {
+        background-image: url('./images/angry1.png');
+        background-size: 15%;
+        background-position: bottom right;
+    }
+
+    #main-build.success.d1 {
+        background-image: url('./images/happy2.png');
+        background-size: 18%;
+        background-position: bottom right;
+    }
+
+    #main-build.failure.d1 {
+        background-image: url('./images/angry2.png');
+        background-size: 25%;
+        background-position: bottom right;
+    }
+
+    #main-build.success.d2 {
+        background-image: url('./images/happy3.png');
+        background-size: 20%;
+        background-position: bottom right;
+    }
+
+    #main-build.failure.d2 {
+        background-image: url('./images/angry3.png');
+        background-size: 25%;
+        background-position: bottom right;
+    }
+
+    #main-build.success.d3 {
+        background-image: url('./images/happy4.png');
+        background-size: 25%;
+        background-position: bottom right;
+    }
+
+    #main-build.failure.d3 {
+        background-image: url('./images/angry4.png');
+        background-size: 25%;
+        background-position: bottom right;
+    }
+
+    #main-build.success.d4 {
+        background-image: url('./images/happy5.png');
+        background-size: 25%;
+        background-position: bottom right;
+    }
+
+    #main-build.failure.d4 {
+        background-image: url('./images/angry5.png');
+        background-size: 25%;
+        background-position: bottom right;
+    }
+
+    #main-build.success.d5 {
+        background-image: url('./images/happy6.png');
+        background-size: 15%;
+        background-position: bottom right;
+    }
+
+    #main-build.failure.d5 {
+        background-image: url('./images/angry6.png');
+        background-size: 25%;
+        background-position: bottom right;
+    }
+
+    #main-build.success.d6 {
+        background-image: url('./images/happy7.png');
+        background-size: 20%;
+        background-position: bottom right;
+    }
+
+    #main-build.failure.d6 {
+        background-image: url('./images/angry7.png');
+        background-size: 25%;
+        background-position: bottom right;
+    }
+
+    #main-build.success.d7 {
+        background-image: url('./images/happy8.png');
+        background-size: 17%;
+        background-position: bottom right;
+    }
+
+    #main-build.failure.d7 {
+        background-image: url('./images/angry8.png');
+        background-size: 25%;
+        background-position: bottom right;
+    }
+
+    #main-build.success.d8 {
+        background-image: url('./images/happy9.png');
+        background-size: 17%;
+        background-position: bottom right;
+    }
+
+    #main-build.failure.d8 {
+        background-image: url('./images/angry9.png');
+        background-size: 25%;
+        background-position: bottom right;
+    }
+
+    #main-build.success.d9 {
+        background-image: url('./images/happy10.png');
+        background-size: 22%;
+        background-position: bottom right;
+    }
+
+    #main-build.failure.d9 {
+        background-image: url('./images/angry10.png');
+        background-size: 25%;
+        background-position: bottom right;
+    }
+
+    #main-build.failure.d10 {
+        background-image: url('./images/angry11.gif');
+        background-size: 25%;
+        background-position: bottom right;
+    }
+
+    #main-build.success.d10 {
+        background-image: url('./images/happy10.png');
+        background-size: 25%;
+        background-position: bottom right;
+    }
+
+    #main-build.unknown.d0, #main-build.unknown.c2, #main-build.unknown.c4, #main-build.unknown.c6, #main-build.unknown.c8, #main-build.unknown.c10 {
+        background-image: url('./images/unknown1.png');
+        background-size: 25%;
+        background-position: right;
+    }
+
+    #main-build.unknown.d1, #main-build.unknown.c3, #main-build.unknown.c5, #main-build.unknown.c7, #main-build.unknown.c9, #main-build.unknown.c11 {
+        background-image: url('./images/unknown2.png');
+        background-size: 25%;
+        background-position: right;
+    }
+	
 #main-branch-name {
     font-size: 2em;
     text-align: left;
@@ -353,6 +496,21 @@ ul {
     text-transform: uppercase;
     padding-left: 3%;
 }
+
+#main-branch-name-small{
+    font-size: 1.5em;
+    text-align: left;
+    text-transform: lowercase;
+    padding-left: 3%;
+}
+
+#main-branch-status-small {
+    font-size: 4.8em;
+    text-align: left;
+    text-transform: uppercase;
+    padding-left: 3%;
+}
+
 
 .build-type, .build-status {
     float: right;

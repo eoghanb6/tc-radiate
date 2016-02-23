@@ -48,7 +48,7 @@
         </div>
 	    <div class="dev-panel">
         <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
-            <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass() }">
+            <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass3() }">
                 <div id="main-branch-name">
                     Build <span class="highlight" data-bind="text: mainBuild().number"></span>
                     <!-- ko if: mainBuild().hasBranchName() -->
@@ -81,9 +81,56 @@
                 </li>
             </ul>
         </div>
-        <div class="accept-panel"></div>
+        <div class="accept-panel">
+		<!-- ko if: mainBuild() != null && mainBuild().status() != null -->
+            <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass2()}">
+                <div id="main-branch-name-small">
+                    Build <span class="highlight" data-bind="text: mainBuild().number"></span>
+                    <!-- ko if: mainBuild().hasBranchName() -->
+                        on the <span data-bind="text: mainBuild().branchName"></span> branch
+                    <!-- /ko -->
+                </div>
+                <div id="main-branch-status-small" class="highlight" data-bind="text: mainBuild().status"></div>
+                <div id="main-branch-triggered-by">
+                    <!-- ko if: mainBuild().triggeredBy -->
+                    triggered by <span class="highlight" data-bind="text: mainBuild().triggeredBy"></span>
+                    <!-- /ko -->
+                    <!-- ko if: mainBuild().issueId-->
+                    for YouTrack item <span data-bind="text: mainBuild().issueId" class="highlight"></span>
+                    <!-- /ko -->
+                </div>
+            </div>
+		
+		
+            <!-- /ko -->
+			
+			</div>
         <div class="accept-panel-history"></div>
-        <div class="accept-sel-panel"></div>
+		
+        <div class="accept-sel-panel">
+		<!-- ko if: mainBuild() != null && mainBuild().status() != null -->
+            <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass4()}">
+                <div id="main-branch-name-small">
+                    Build <span class="highlight" data-bind="text: mainBuild().number"></span>
+                    <!-- ko if: mainBuild().hasBranchName() -->
+                        on the <span data-bind="text: mainBuild().branchName"></span> branch
+                    <!-- /ko -->
+                </div>
+                <div id="main-branch-status-small" class="highlight" data-bind="text: mainBuild().status"></div>
+                <div id="main-branch-triggered-by">
+                    <!-- ko if: mainBuild().triggeredBy -->
+                    triggered by <span class="highlight" data-bind="text: mainBuild().triggeredBy"></span>
+                    <!-- /ko -->
+                    <!-- ko if: mainBuild().issueId-->
+                    for YouTrack item <span data-bind="text: mainBuild().issueId" class="highlight"></span>
+                    <!-- /ko -->
+                </div>
+            </div>
+		
+		
+            <!-- /ko -->
+			
+			</div>
         <div class="accept-sel-panel-history"></div>
         <div class="history-panel">
         <ul data-bind="foreach: { data: builds }">
@@ -98,9 +145,9 @@
                     <!-- /ko -->
                 </li>
             </ul>
-        </div>   
+          </div>
 
-	</div>
+	
     <div class="error-box" data-bind="showHide: hasError">
         <div data-bind="text: errorMessage"></div>
     </div>

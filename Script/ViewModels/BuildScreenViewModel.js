@@ -8,7 +8,10 @@
     self.isLoading    = ko.observable(true);
     self.randomClass  = ko.observable(Utils.getRandomClass());
     self.mainBuild    = ko.observable();
-
+	self.randomClass2 = ko.observable(Utils.getRandomClass2());
+	self.randomClass3 = ko.observable(Utils.getRandomClass3());
+	self.randomClass4 = ko.observable(Utils.getRandomClass4());
+	
     self.hasError = ko.computed(function () {
         if (!this.errorMessage())
             return false;
