@@ -1,4 +1,4 @@
-﻿body {
+body {
     margin: 0;
     background-color: #000;
     color: #DEDEDE;
@@ -79,93 +79,145 @@ ul {
     clear: both;
 }
 
-.build-panel {
+.compile-title {
     position: absolute;
-    top: 0%;
-    right: 50%;
+    opacity: 0.5;
+    font-size: 3em;
+    width: 100%;
+    right: 25%;
+    text-align: center;
+    z-index: 1000;
+}
+
+.dev-title {
+    position: absolute;
+    opacity: 0.5;
+    font-size: 3em;
+    width: 50%;
+    right: 0%;
+    text-align: center;
+    z-index: 1000;
+}
+
+.accept-title {
+    position: absolute;
+    opacity: 0.5;
+    font-size: 3em;
+    width: 100%;
+    right: 25%;
+    top: 42.75%;
+    text-align: center;
+    z-index: 1000;
+}
+
+.sel-title {
+    position: absolute;
+    opacity: 0.5;
+    font-size: 3em;
+    width: 100%;
+    right: 25%;
+    top: 69%;
+    text-align: center;
+    z-index: 1000;
+}
+
+.history-title {
+    position: absolute;
+    opacity: 0.5;
+    font-size: 3em;
+    width: 50%;
+    right: 0%;
+    top: 42.75%;
+    text-align: center;
+    z-index: 1000;
+}
+.compile-panel {
+    position: absolute;
+    top: 6.5%;
+    left: 1%;
     width: 48.5%;
-    height: 35%;
-    background: red; border:solid #000; border-width: 0 10px 10px 0;
+    height: 30%;
+    background: red; 
     overflow: hidden;
     z-index:1;
 }
 
-.build-panel-history {
+.compile-panel-history {
     position: absolute;
-    bottom: 47%;
-    left: 0%;
-    width: 50%;
+    bottom: 47.5%;
+    left: 0.5%;
+    width: 49.5%;
     height: 16.5%;
-    background: black; border:solid #000; border-width: 0 10px 10px 0; 
+    background: black; 
 }
 
 .dev-panel {
     position: absolute;
-    top: 0%;
-    left: 50%;
+    top: 6.5%;
+    right: 1%;
     width: 48.5%;
-    height: 35%;
-    background: blue; border:solid #000; border-width: 0 10px 10px 0;
+    height: 30%;
+    background: blue; 
     overflow: hidden;
     z-index:1;
 }
 
 .dev-panel-history {
     position: absolute;
-    bottom: 50%;
-    right: 0%;
-    width: 50%;
+    bottom: 50.5%;
+    right: 0.5%;
+    width: 49.5%;
     height: 13.5%;
-    background: black; border:solid #000; border-width: 0 10px 10px 0; 
+    background: black;  
 }
 
 .accept-panel {
     position: absolute;
-    top: 50%;
-    right: 50%;
+    top: 48%;
+    left: 1%;
     width: 48.5%;
     height: 15%;
-    background: #006400; border:solid #000; border-width: 0 10px 10px 0;
+    background: #006400; 
     overflow: hidden;
     z-index:1;
 }
 
 .accept-panel-history {
     position: absolute;
-    bottom: 25%;
-    right: 50%;
-    width: 48.5%;
+    bottom: 27.5%;
+    left: 0.5%;
+    width: 49.5%;
     height: 10%;
-    background: black; border:solid #000; border-width: 0 10px 10px 0; 
+    background: black;  
 }
 
 .accept-sel-panel {
     position: absolute;
-    bottom: 10%;
-    right: 50%;
+    bottom: 12%;
+    left: 1%;
     width: 48.5%;
     height: 14%;
-    background: #006400; border:solid #000; border-width: 0 10px 10px 0;
+    background: #006400; 
     overflow: hidden;
     z-index:1;
 }
 
 .accept-sel-panel-history {
     position: absolute;
-    bottom: 0%;
-    right: 50%;
-    width: 48.5%;
+    bottom: 2.5%;
+    left: 0.5%;
+    width: 49.5%;
     height: 10%;
-    background: black; border:solid #000; border-width: 0 10px 10px 0; 
+    background: black; 
 }
 
 .history-panel {
     position: absolute;
-    bottom: 0%;
+    top: 47%;
     right: 0%;
     width: 50%;
     height: 50%;
-    background: black; border:solid #000; border-width: 0 10px 10px 0;
+    background: black;
     overflow: hidden;
     z-index:1;
 }
@@ -449,7 +501,7 @@ ul {
 
     #main-build.success.d9 {
         background-image: url('./images/happy10.png');
-        background-size: 22%;
+        background-size: 18%;
         background-position: bottom right;
     }
 
@@ -488,6 +540,7 @@ ul {
     text-align: left;
     text-transform: lowercase;
     padding-left: 3%;
+    padding-top: 13%;
 }
 
 #main-branch-status {
@@ -495,6 +548,7 @@ ul {
     text-align: left;
     text-transform: uppercase;
     padding-left: 3%;
+    padding-top: 3%;
 }
 
 #main-branch-name-small{
@@ -502,15 +556,15 @@ ul {
     text-align: left;
     text-transform: lowercase;
     padding-left: 3%;
+    padding-top: 3%;
 }
 
 #main-branch-status-small {
-    font-size: 4.8em;
+    font-size: 4em;
     text-align: left;
     text-transform: uppercase;
     padding-left: 3%;
 }
-
 
 .build-type, .build-status {
     float: right;

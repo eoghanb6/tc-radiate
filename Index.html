@@ -10,8 +10,8 @@
 	<div class="page-content" data-bind="showHide: !isFirstLoad()">
 	    
         
-        
-	    <div class="build-panel">
+        <div class="compile-title">Compile, Build and Unit Tests</div>
+	    <div class="compile-panel">
         <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
             <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass() }">
                 <div id="main-branch-name">
@@ -32,7 +32,7 @@
             </div>
             <!-- /ko -->
         </div>
-        <div class="build-panel-history">
+        <div class="compile-panel-history">
             <ul data-bind="foreach: { data: builds.slice(1, 2) }">
                 <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
@@ -46,6 +46,7 @@
                 </li>
             </ul>
         </div>
+        <div class="dev-title">Deploy to Development</div>
 	    <div class="dev-panel">
         <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
 		
@@ -82,6 +83,7 @@
                 </li>
             </ul>
         </div>
+        <div class="accept-title">Deploy to Accept</div>
         <div class="accept-panel">
 		<!-- ko if: mainBuild() != null && mainBuild().status() != null -->
 		
@@ -121,7 +123,7 @@
                 </li>
             </ul>
         </div>
-		
+		<div class="sel-title">Execute Selenium Tests</div>
         <div class="accept-sel-panel">
 		<!-- ko if: mainBuild() != null && mainBuild().status() != null -->
             <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass4()}">
@@ -160,8 +162,9 @@
                 </li>
             </ul>
         </div>
+        <div class="history-title">Most recent test runs</div>
         <div class="history-panel">
-        <ul data-bind="foreach: { data: builds.slice(0, 5) }">
+        <ul data-bind="foreach: { data: builds.slice(0, 7) }">
                 <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
