@@ -24,7 +24,8 @@
         self.loadMainBuildStatus();
 
         //Load a new build image every so often just for fun
-        setInterval(function () { self.randomClass(Utils.getRandomClass()); }, Settings.buildImageIntervalMs);
+		// doesn't look great with 4 images changing 
+       // setInterval(function () { self.randomClass(Utils.getRandomClass()); }, Settings.buildImageIntervalMs);
 
     };
 

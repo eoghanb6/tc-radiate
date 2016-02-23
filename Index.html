@@ -48,6 +48,7 @@
         </div>
 	    <div class="dev-panel">
         <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
+		
             <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass3() }">
                 <div id="main-branch-name">
                     Build <span class="highlight" data-bind="text: mainBuild().number"></span>
@@ -83,6 +84,7 @@
         </div>
         <div class="accept-panel">
 		<!-- ko if: mainBuild() != null && mainBuild().status() != null -->
+		
             <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass2()}">
                 <div id="main-branch-name-small">
                     Build <span class="highlight" data-bind="text: mainBuild().number"></span>
@@ -105,7 +107,20 @@
             <!-- /ko -->
 			
 			</div>
-        <div class="accept-panel-history"></div>
+        <div class="accept-panel-history">
+		<ul data-bind="foreach: { data: builds.slice(1, 2) }">
+                <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
+                    <div class="build-branch"  data-bind="text: description()"></div>
+                    <div class="build-type" data-bind="text: buildType"></div>
+                    <div class="clear"></div>
+                    <div class="build-status" data-bind="text: isRunning() ? '' : status"></div>
+                    <div class="clear"></div>
+                    <!-- ko if: hasProgress() -->
+                       <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
+                    <!-- /ko -->
+                </li>
+            </ul>
+        </div>
 		
         <div class="accept-sel-panel">
 		<!-- ko if: mainBuild() != null && mainBuild().status() != null -->
@@ -131,9 +146,22 @@
             <!-- /ko -->
 			
 			</div>
-        <div class="accept-sel-panel-history"></div>
+        <div class="accept-sel-panel-history">
+		<ul data-bind="foreach: { data: builds.slice(1, 2) }">
+                <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
+                    <div class="build-branch"  data-bind="text: description()"></div>
+                    <div class="build-type" data-bind="text: buildType"></div>
+                    <div class="clear"></div>
+                    <div class="build-status" data-bind="text: isRunning() ? '' : status"></div>
+                    <div class="clear"></div>
+                    <!-- ko if: hasProgress() -->
+                       <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
+                    <!-- /ko -->
+                </li>
+            </ul>
+        </div>
         <div class="history-panel">
-        <ul data-bind="foreach: { data: builds }">
+        <ul data-bind="foreach: { data: builds.slice(0, 5) }">
                 <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>

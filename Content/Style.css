@@ -136,7 +136,7 @@ ul {
     right: 50%;
     width: 48.5%;
     height: 10%;
-    background: grey; border:solid #000; border-width: 0 10px 10px 0; 
+    background: black; border:solid #000; border-width: 0 10px 10px 0; 
 }
 
 .accept-sel-panel {
@@ -156,7 +156,7 @@ ul {
     right: 50%;
     width: 48.5%;
     height: 10%;
-    background: grey; border:solid #000; border-width: 0 10px 10px 0; 
+    background: black; border:solid #000; border-width: 0 10px 10px 0; 
 }
 
 .history-panel {
