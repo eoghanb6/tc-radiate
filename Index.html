@@ -27,6 +27,7 @@
             <div class="left">
             <div class="compile-title">Compile, Build and Unit Tests</div>
     	    <div class="compile-panel">
+			
             <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
                 <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass() }">
                     <div id="main-branch-name">
@@ -49,16 +50,16 @@
             </div>
         <div>
             <div class="compile-panel-history">
-                <ul data-bind="foreach: { data: builds.slice(1, 2) }">
+                <ul data-bind="foreach: { data: builds }">
+				<!-- ko if: buildType() == "Compile/Build/Unit Test"-->
                     <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                         <div class="build-branch"  data-bind="text: description()"></div>
                         <div class="build-type" data-bind="text: buildType"></div>
                         <div class="clear"></div>
                         <div class="build-status" data-bind="text: isRunning() ? '' : status"></div>
                         <div class="clear"></div>
-                        <!-- ko if: hasProgress() -->
-                           <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
-                        <!-- /ko -->
+				<!-- /ko -->
+				<!-- /ko -->
                     </li>
                 </ul>
             </div>
@@ -90,7 +91,8 @@
             
             </div>
         <div class="accept-panel-history">
-        <ul data-bind="foreach: { data: builds.slice(1, 2) }">
+        <ul data-bind="foreach: { data: builds }">
+		<!-- ko if: buildType() == "Deploy to Accept"-->
                 <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
@@ -99,6 +101,7 @@
                     <div class="clear"></div>
                     <!-- ko if: hasProgress() -->
                        <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
+                    <!-- /ko -->
                     <!-- /ko -->
                 </li>
             </ul>
@@ -130,7 +133,8 @@
     
     
         <div class="accept-sel-panel-history">
-		<ul data-bind="foreach: { data: builds.slice(1, 2) }">
+		<ul data-bind="foreach: { data: builds }">
+		<!-- ko if: buildType() == "Execute Selenium Tests"-->
                 <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
@@ -139,6 +143,7 @@
                     <div class="clear"></div>
                     <!-- ko if: hasProgress() -->
                        <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
+                    <!-- /ko -->
                     <!-- /ko -->
                 </li>
             </ul>
@@ -170,7 +175,8 @@
             <!-- /ko -->
         </div>
         <div class="dev-panel-history">
-        <ul data-bind="foreach: { data: builds.slice(1, 2) }">
+        <ul data-bind="foreach: { data: builds }">
+		<!-- ko if: buildType() == "Deploy to Development"-->
                 <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
@@ -179,6 +185,7 @@
                     <div class="clear"></div>
                     <!-- ko if: hasProgress() -->
                        <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
+                    <!-- /ko -->
                     <!-- /ko -->
                 </li>
             </ul>
