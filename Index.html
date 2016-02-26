@@ -135,6 +135,19 @@
         <div class="accept-sel-panel-history">
 		<ul data-bind="foreach: { data: builds }">
 		<!-- ko if: buildType() == "Execute Selenium Tests"-->
+		  <!-- ko if: status() == "FAILURE"-->
+                <li class = "sel-failclass" data-bind="css: { running: isRunning() }">
+                    <div class="build-branch"  data-bind="text: description()"></div>
+                    <div class="build-type" data-bind="text: buildType"></div>
+                    <div class="clear"></div>
+                    <div class="build-status" data-bind="text: isRunning() ? '' : status"></div>
+                    <div class="clear"></div>
+                    <!-- ko if: hasProgress() -->
+                       <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
+                    <!-- /ko -->
+                </li>
+				<!-- /ko -->
+				<!-- ko if: status() == "SUCCESS"-->
                 <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
@@ -146,7 +159,9 @@
                     <!-- /ko -->
                     <!-- /ko -->
                 </li>
+				<!-- /ko -->
             </ul>
+			<!-- /ko -->
         </div>
     </div>
 </div>

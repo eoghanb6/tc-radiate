@@ -22,6 +22,7 @@
         self.isLoading(true);
         self.loadBuildTypes();
         self.loadMainBuildStatus();
+		
 
         //Load a new build image every so often just for fun
 		// doesn't look great with 4 images changing 
