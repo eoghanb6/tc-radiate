@@ -50,15 +50,16 @@
             </div>
         <div>
             <div class="compile-panel-history">
-                <ul data-bind="foreach: { data: builds }">
-				<!-- ko if: buildType() == "Compile/Build/Unit Test"-->
+                <ul data-bind="foreach: { data: mostRecentCompiles }">
                     <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                         <div class="build-branch"  data-bind="text: description()"></div>
                         <div class="build-type" data-bind="text: buildType"></div>
                         <div class="clear"></div>
                         <div class="build-status" data-bind="text: isRunning() ? '' : status"></div>
-                        <div class="clear"></div>
-				<!-- /ko -->
+                        <div class="clear"></div>                   
+						<!-- ko if: hasProgress() -->
+                       <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
+                    <!-- /ko -->
 				<!-- /ko -->
                     </li>
                 </ul>
@@ -91,8 +92,7 @@
             
             </div>
         <div class="accept-panel-history">
-        <ul data-bind="foreach: { data: builds }">
-		<!-- ko if: buildType() == "Deploy to Accept"-->
+        <ul data-bind="foreach: { data: mostRecentAccept }">
                 <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
@@ -101,7 +101,6 @@
                     <div class="clear"></div>
                     <!-- ko if: hasProgress() -->
                        <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
-                    <!-- /ko -->
                     <!-- /ko -->
                 </li>
             </ul>
@@ -133,8 +132,7 @@
     
     
         <div class="accept-sel-panel-history">
-		<ul data-bind="foreach: { data: builds }">
-		<!-- ko if: buildType() == "Execute Selenium Tests"-->
+		<ul data-bind="foreach: { data: mostRecentSelenium }">
 		  <!-- ko if: status() == "FAILURE"-->
                 <li class = "sel-failclass" data-bind="css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
@@ -190,8 +188,7 @@
             <!-- /ko -->
         </div>
         <div class="dev-panel-history">
-        <ul data-bind="foreach: { data: builds }">
-		<!-- ko if: buildType() == "Deploy to Development"-->
+        <ul data-bind="foreach: { data: mostRecentDevs }">
                 <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
@@ -200,7 +197,6 @@
                     <div class="clear"></div>
                     <!-- ko if: hasProgress() -->
                        <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
-                    <!-- /ko -->
                     <!-- /ko -->
                 </li>
             </ul>
