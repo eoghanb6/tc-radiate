@@ -52,7 +52,7 @@ ul {
     }
 
 .success {
-    background-color: #006400!important;
+    background-color: Green!important;
 }
 
 .failure {
@@ -122,8 +122,7 @@ ul {
     z-index: 1000;
 }
 .compile-panel {
-    padding-left: 1%;
-    width: 98%;
+    width: 100%;
     overflow: hidden;
     z-index:1;
 }
@@ -131,11 +130,11 @@ ul {
 .compile-panel-history {
     width: 100%;
     background: black; 
+    font-size: 1.5em;
 }
 
 .dev-panel {
-    padding-left: 1%;
-    width: 98%;
+    width: 100%;
     overflow: hidden;
     z-index:1;
 }
@@ -143,12 +142,12 @@ ul {
 .dev-panel-history {
     width: 100%;
     background: black;  
+    font-size: 1.5em;
 }
 
 .accept-panel {
     padding-top: 1%;
-    padding-left: 1%;
-    width: 98%;
+    width: 100%;
     overflow: hidden;
     z-index:1;
 }
@@ -156,11 +155,11 @@ ul {
 .accept-panel-history {
     width: 100%;
     background: black;  
+    font-size: 1.5em;
 }
 
 .accept-sel-panel {
-    padding-left: 1%;
-    width: 98%;
+    width: 100%;
     overflow: hidden;
     z-index:1;
 }
@@ -168,9 +167,12 @@ ul {
 .accept-sel-panel-history {
     width: 100%;
     background: black; 
+    font-size: 1.5em;
 }
 
 .history-panel {
+    font-size: 1.5em;
+    padding-top: 1%;
     width: 100%;
     background: black;
     overflow: hidden;
@@ -499,6 +501,17 @@ ul {
 
 .build-branch, .build-number {
     float: left;
+}
+
+.build-branch-main {
+    float: left;
+    font-size: 3em;
+}
+
+.build-type-main {
+    float: left;
+    font-size: 4em;
+    width: 100%
 }
 
 .build-number { 
