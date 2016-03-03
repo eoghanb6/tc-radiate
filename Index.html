@@ -26,11 +26,22 @@
         <div>
             <div class="left">
 
+    <script>
+
+    function randomSuccess() {
+        return 'c' + Math.floor((Math.random() * 11) +1);
+        }
+
+    function randomFail() {
+        return 'd' + Math.floor((Math.random() * 11) +1);
+        }
+    </script>
+
             <div class="compile-title">Compile, Build and Unit Tests</div>
     	    <div class="compile-panel">
             <ul data-bind="foreach: { data: mainCompiles }">
                      <!-- ko if: status() == "FAILURE"-->
-                <li class = "failure">
+                <li data-bind="attr: { class: 'failure' + ' ' + randomFail() }">
                     <div class="build-branch-main"  data-bind="text: description()"></div>
                     <div class="build-type-main" data-bind="text: status()"></div>
                     <div class="clear"></div>
@@ -40,8 +51,7 @@
                 </li>
                 <!-- /ko -->
                 <!-- ko if: status() == "SUCCESS"-->
-                <li class = "success">
-                    <div class="build-branch-main"  data-bind="text: self.user"></div>
+                <li data-bind="attr: { class: 'success' + ' ' + randomSuccess() }">
                     <div class="build-branch-main"  data-bind="text: description()"></div>
                     <div class="build-type-main" data-bind="text: status()"></div>
                     <div class="clear"></div>
@@ -72,7 +82,7 @@
         <div class="accept-panel">
         <ul data-bind="foreach: { data: mainAccept }">
                     <!-- ko if: status() == "FAILURE"-->
-                <li class = "failure">
+                <li data-bind="attr: { class: 'failure' + ' ' + randomFail() }">
                     <div class="build-branch-main"  data-bind="text: description()"></div>
                     <div class="build-type-main" data-bind="text: status()"></div>
                     <div class="clear"></div>
@@ -82,7 +92,7 @@
                 </li>
                 <!-- /ko -->
                 <!-- ko if: status() == "SUCCESS"-->
-                <li class = "success">
+                <li data-bind="attr: { class: 'success' + ' ' + randomSuccess() }">
                     <div class="build-branch-main"  data-bind="text: description()"></div>
                     <div class="build-type-main" data-bind="text: status()"></div>
                     <div class="clear"></div>
@@ -113,7 +123,7 @@
         <div class="accept-sel-panel">
         <ul data-bind="foreach: { data: mainSelenium }">
             <!-- ko if: status() == "FAILURE"-->
-                <li class = "sel-failclass">
+                <li data-bind="attr: { class: 'failure' + ' ' + randomFail() }">
                     <div class="build-branch-main"  data-bind="text: description()"></div>
                     <div class="build-type-main" data-bind="text: status()"></div>
                     <div class="clear"></div>
@@ -123,7 +133,7 @@
                 </li>
                 <!-- /ko -->
                 <!-- ko if: status() == "SUCCESS"-->
-                <li class = "success">
+                <li data-bind="attr: { class: 'success' + ' ' + randomSuccess() }">
                     <div class="build-branch-main"  data-bind="text: description()"></div>
                     <div class="build-type-main" data-bind="text: status()"></div>
                     <div class="clear"></div>
@@ -137,7 +147,7 @@
         <div class="accept-sel-panel-history">
 		<ul data-bind="foreach: { data: mostRecentSelenium }">
 		  <!-- ko if: status() == "FAILURE"-->
-                <li class = "sel-failclass">
+                <li data-bind="attr: { class: 'failure' + ' ' + randomFail() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
                     <div class="clear"></div>
@@ -149,7 +159,7 @@
                 </li>
 				<!-- /ko -->
 				<!-- ko if: status() == "SUCCESS"-->
-                <li class = "success">
+                <li data-bind="attr: { class: 'success' + ' ' + randomSuccess() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
                     <div class="clear"></div>
@@ -183,7 +193,7 @@
                 </li>
                 <!-- /ko -->
                 <!-- ko if: status() == "SUCCESS"-->
-                <li class = "success">
+                <li data-bind="attr: { class: 'success' + ' ' + randomSuccess() }">
                     <div class="build-branch-main"  data-bind="text: description()"></div>
                     <div class="build-type-main" data-bind="text: isRunning() ? '' : status"></div>
                     <div class="clear"></div>
@@ -211,7 +221,7 @@
 
         <div class="history-title">Most recent test runs</div>
         <div class="history-panel">
-        <ul data-bind="foreach: { data: builds.slice(0, 40) }">
+        <ul data-bind="foreach: { data: builds.slice(0, 7) }">
                 <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
