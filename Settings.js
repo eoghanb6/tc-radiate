@@ -28,7 +28,7 @@ jQuery.extend(Settings, UrlParams);
 // TEAM CITY URLS
 //----------------------
 //The url for the list of all builds on the left hand side of the screen
-Settings.buildsUrl = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=running:any,branch:branched:any,count:20';
+Settings.buildsUrl = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=running:any,branch:branched:any,count:40';
 
 //The url for the list of build types (used for mapping the build id (e.g. bt11) to the name (e.g. Website Tests)
 Settings.buildTypesUrl = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/buildTypes';

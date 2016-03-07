@@ -3,6 +3,7 @@
 
     self.isFirstLoad  = ko.observable(true);
     self.builds       = ko.observableArray();
+    self.deploysToDev = ko.observableArray();
     self.buildTypes   = ko.observableArray();
     self.errorMessage = ko.observable();
     self.isLoading    = ko.observable(true);
@@ -11,7 +12,21 @@
     self.randomClass2 = ko.observable(Utils.getRandomClass2());
     self.randomClass3 = ko.observable(Utils.getRandomClass3());
     self.randomClass4 = ko.observable(Utils.getRandomClass4());
-    
+
+	
+   self.deploysToDevId = ko.computed(function() {
+        var deployToDev = ko.utils.arrayFilter(self.builds(), function(build) {
+            return build.buildType() == 'Deploy to Development';
+			}, self);
+			var deployToDevID = deployToDev[0];
+			return deployToDevID;
+    });
+	
+	
+	
+        
+   
+	
     self.mostRecentCompiles = ko.computed(function() {
         var compileBuilds = ko.utils.arrayFilter(self.builds(), function(build) {
             return build.buildType() == 'Compile/Build/Unit Test';

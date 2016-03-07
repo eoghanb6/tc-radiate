@@ -70,13 +70,13 @@
         <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
         
             <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass2()}">
-                <div id="main-branch-name-small">
+                <div id="main-branch-name">
                     Build <span class="highlight" data-bind="text: mainBuild().number"></span>
                     <!-- ko if: mainBuild().hasBranchName() -->
                         on the <span data-bind="text: mainBuild().branchName"></span> branch
                     <!-- /ko -->
                 </div>
-                <div id="main-branch-status-small" class="highlight" data-bind="text: mainBuild().status"></div>
+                <div id="main-branch-status" class="highlight" data-bind="text: mainBuild().status"></div>
                 <div id="main-branch-triggered-by">
                     <!-- ko if: mainBuild().triggeredBy -->
                     triggered by <span class="highlight" data-bind="text: mainBuild().triggeredBy"></span>
@@ -109,13 +109,13 @@
         <div class="accept-sel-panel">
         <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
             <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass4()}">
-                <div id="main-branch-name-small">
+                <div id="main-branch-name">
                     Build <span class="highlight" data-bind="text: mainBuild().number"></span>
                     <!-- ko if: mainBuild().hasBranchName() -->
                         on the <span data-bind="text: mainBuild().branchName"></span> branch
                     <!-- /ko -->
                 </div>
-                <div id="main-branch-status-small" class="highlight" data-bind="text: mainBuild().status"></div>
+                <div id="main-branch-status" class="highlight" data-bind="text: mainBuild().status"></div>
                 <div id="main-branch-triggered-by">
                     <!-- ko if: mainBuild().triggeredBy -->
                     triggered by <span class="highlight" data-bind="text: mainBuild().triggeredBy"></span>
