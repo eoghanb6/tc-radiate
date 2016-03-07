@@ -3,7 +3,7 @@
     <head>
         <meta name="viewport" content="width=device-width" />
         <title>Builds</title>
-		<link href="Content/Style.css" rel="stylesheet" />
+        <link href="Content/Style.css" rel="stylesheet" />
         <style>
 .right {
     position: absolute;
@@ -20,90 +20,77 @@
 </style>
     </head>
 <body>
-	<div class="page-loading" data-bind="showHide: isFirstLoad()"></div>
-	<div class="page-content" data-bind="showHide: !isFirstLoad()">
-	    
+    <div class="page-loading" data-bind="showHide: isFirstLoad()"></div>
+    <div class="page-content" data-bind="showHide: !isFirstLoad()">
+        
         <div>
             <div class="left">
-
-    <script>
-
-    function randomSuccess() {
-        return 'c' + Math.floor((Math.random() * 11) +1);
-        }
-
-    function randomFail() {
-        return 'd' + Math.floor((Math.random() * 11) +1);
-        }
-    </script>
-
             <div class="compile-title">Compile, Build and Unit Tests</div>
-    	    <div class="compile-panel">
-            <ul data-bind="foreach: { data: mainCompiles }">
-                     <!-- ko if: status() == "FAILURE"-->
-                <li data-bind="attr: { class: 'failure' + ' ' + randomFail() }">
-                    <div class="build-branch-main"  data-bind="text: description()"></div>
-                    <div class="build-type-main" data-bind="text: status()"></div>
-                    <div class="clear"></div>
-                    <!-- ko if: hasProgress() -->
-                       <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
-                    <!-- /ko -->
-                </li>
+            <div class="compile-panel">
+            
+            <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
+                <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass() }">
+                    <div id="main-branch-name">
+                        Build <span class="highlight" data-bind="text: mainBuild().number"></span>
+                        <!-- ko if: mainBuild().hasBranchName() -->
+                            on the <span data-bind="text: mainBuild().branchName"></span> branch
+                        <!-- /ko -->
+                    </div>
+                    <div id="main-branch-status" class="highlight" data-bind="text: mainBuild().status"></div>
+                    <div id="main-branch-triggered-by">
+                        <!-- ko if: mainBuild().triggeredBy -->
+                        triggered by <span class="highlight" data-bind="text: mainBuild().triggeredBy"></span>
+                        <!-- /ko -->
+                        <!-- ko if: mainBuild().issueId-->
+                        for YouTrack item <span data-bind="text: mainBuild().issueId" class="highlight"></span>
+                        <!-- /ko -->
+                    </div>
+                </div>
                 <!-- /ko -->
-                <!-- ko if: status() == "SUCCESS"-->
-                <li data-bind="attr: { class: 'success' + ' ' + randomSuccess() }">
-                    <div class="build-branch-main"  data-bind="text: description()"></div>
-                    <div class="build-type-main" data-bind="text: status()"></div>
-                    <div class="clear"></div>
-                    <!-- ko if: hasProgress() -->
-                       <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
-                    <!-- /ko -->
-                    <!-- /ko -->
-                </li>
-                </ul>
-        </div>
-        
-             <div class="compile-panel-history">
+            </div>
+        <div>
+            <div class="compile-panel-history">
                 <ul data-bind="foreach: { data: mostRecentCompiles }">
                     <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                         <div class="build-branch"  data-bind="text: description()"></div>
                         <div class="build-type" data-bind="text: buildType"></div>
                         <div class="clear"></div>
-                        <div class="build-status" data-bind="text: status()"></div>
+                        <div class="build-status" data-bind="text: isRunning() ? '' : status"></div>
                         <div class="clear"></div>                   
-						<!-- ko if: hasProgress() -->
+                        <!-- ko if: hasProgress() -->
                        <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
                     <!-- /ko -->
+                <!-- /ko -->
                     </li>
                 </ul>
             </div>
-        
+        </div>
         <div class="accept-title">Deploy to Accept</div>
         <div class="accept-panel">
-        <ul data-bind="foreach: { data: mainAccept }">
-                    <!-- ko if: status() == "FAILURE"-->
-                <li data-bind="attr: { class: 'failure' + ' ' + randomFail() }">
-                    <div class="build-branch-main"  data-bind="text: description()"></div>
-                    <div class="build-type-main" data-bind="text: status()"></div>
-                    <div class="clear"></div>
-                    <!-- ko if: hasProgress() -->
-                       <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
+        <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
+        
+            <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass2()}">
+                <div id="main-branch-name-small">
+                    Build <span class="highlight" data-bind="text: mainBuild().number"></span>
+                    <!-- ko if: mainBuild().hasBranchName() -->
+                        on the <span data-bind="text: mainBuild().branchName"></span> branch
                     <!-- /ko -->
-                </li>
-                <!-- /ko -->
-                <!-- ko if: status() == "SUCCESS"-->
-                <li data-bind="attr: { class: 'success' + ' ' + randomSuccess() }">
-                    <div class="build-branch-main"  data-bind="text: description()"></div>
-                    <div class="build-type-main" data-bind="text: status()"></div>
-                    <div class="clear"></div>
-                    <!-- ko if: hasProgress() -->
-                       <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
+                </div>
+                <div id="main-branch-status-small" class="highlight" data-bind="text: mainBuild().status"></div>
+                <div id="main-branch-triggered-by">
+                    <!-- ko if: mainBuild().triggeredBy -->
+                    triggered by <span class="highlight" data-bind="text: mainBuild().triggeredBy"></span>
                     <!-- /ko -->
+                    <!-- ko if: mainBuild().issueId-->
+                    for YouTrack item <span data-bind="text: mainBuild().issueId" class="highlight"></span>
                     <!-- /ko -->
-                </li>
-                </ul>
+                </div>
             </div>
-           
+        
+        
+            <!-- /ko -->
+            
+            </div>
         <div class="accept-panel-history">
         <ul data-bind="foreach: { data: mostRecentAccept }">
                 <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
@@ -118,14 +105,40 @@
                 </li>
             </ul>
         </div>
-
         <div class="sel-title">Execute Selenium Tests</div>
         <div class="accept-sel-panel">
-        <ul data-bind="foreach: { data: mainSelenium }">
-            <!-- ko if: status() == "FAILURE"-->
-                <li data-bind="attr: { class: randomFail() + ' ' + 'sel-failclass' }">
-                    <div class="build-branch-main"  data-bind="text: description()"></div>
-                    <div class="build-type-main" data-bind="text: status()"></div>
+        <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
+            <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass4()}">
+                <div id="main-branch-name-small">
+                    Build <span class="highlight" data-bind="text: mainBuild().number"></span>
+                    <!-- ko if: mainBuild().hasBranchName() -->
+                        on the <span data-bind="text: mainBuild().branchName"></span> branch
+                    <!-- /ko -->
+                </div>
+                <div id="main-branch-status-small" class="highlight" data-bind="text: mainBuild().status"></div>
+                <div id="main-branch-triggered-by">
+                    <!-- ko if: mainBuild().triggeredBy -->
+                    triggered by <span class="highlight" data-bind="text: mainBuild().triggeredBy"></span>
+                    <!-- /ko -->
+                    <!-- ko if: mainBuild().issueId-->
+                    for YouTrack item <span data-bind="text: mainBuild().issueId" class="highlight"></span>
+                    <!-- /ko -->
+                </div>
+            </div>
+        
+        
+            <!-- /ko -->
+    </div>
+    
+    
+        <div class="accept-sel-panel-history">
+        <ul data-bind="foreach: { data: mostRecentSelenium }">
+          <!-- ko if: status() == "FAILURE"-->
+                <li class = "sel-failclass" data-bind="css: { running: isRunning() }">
+                    <div class="build-branch"  data-bind="text: description()"></div>
+                    <div class="build-type" data-bind="text: buildType"></div>
+                    <div class="clear"></div>
+                    <div class="build-status" data-bind="text: isRunning() ? '' : status"></div>
                     <div class="clear"></div>
                     <!-- ko if: hasProgress() -->
                        <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
@@ -133,85 +146,54 @@
                 </li>
                 <!-- /ko -->
                 <!-- ko if: status() == "SUCCESS"-->
-                <li data-bind="attr: { class: 'success' + ' ' + randomSuccess() }">
-                    <div class="build-branch-main"  data-bind="text: description()"></div>
-                    <div class="build-type-main" data-bind="text: status()"></div>
-                    <div class="clear"></div>
-                    <!-- ko if: hasProgress() -->
-                       <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
-                    <!-- /ko -->
-                    <!-- /ko -->
-                </li>
-            </div>
-    
-        <div class="accept-sel-panel-history">
-		<ul data-bind="foreach: { data: mostRecentSelenium }">
-		  <!-- ko if: status() == "FAILURE"-->
-                <li class="sel-failclass">
+                <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
                     <div class="clear"></div>
-                    <div class="build-status" data-bind="text: status()"></div>
-                    <div class="clear"></div>
-                    <!-- ko if: hasProgress() -->
-                       <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
-                    <!-- /ko -->
-                </li>
-				<!-- /ko -->
-				<!-- ko if: status() == "SUCCESS"-->
-                <li class="success">
-                    <div class="build-branch"  data-bind="text: description()"></div>
-                    <div class="build-type" data-bind="text: buildType"></div>
-                    <div class="clear"></div>
-                    <div class="build-status" data-bind="text: status()"></div>
+                    <div class="build-status" data-bind="text: isRunning() ? '' : status"></div>
                     <div class="clear"></div>
                     <!-- ko if: hasProgress() -->
                        <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
                     <!-- /ko -->
                     <!-- /ko -->
                 </li>
+                <!-- /ko -->
             </ul>
+            <!-- /ko -->
         </div>
-         </div>
-
     </div>
-</div>
-</div>
 </div>
     <div class="right">
         <div class="dev-title">Deploy to Development</div>
         <div class="dev-panel">
-        <ul data-bind="foreach: { data: mainDevs }">
-                     <!-- ko if: status() == "FAILURE"-->
-                <li data-bind="attr: { class: 'failure' + ' ' + randomFail() }">
-                <li class = "failure">
-                    <div class="build-branch-main"  data-bind="text: description()"></div>
-                    <div class="build-type-main" data-bind="text: status()"></div>
-                    <div class="clear"></div>
-                    <!-- ko if: hasProgress() -->
-                       <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
+        <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
+        
+            <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass3() }">
+                <div id="main-branch-name">
+                    Build <span class="highlight" data-bind="text: mainBuild().number"></span>
+                    <!-- ko if: mainBuild().hasBranchName() -->
+                        on the <span data-bind="text: mainBuild().branchName"></span> branch
                     <!-- /ko -->
-                </li>
-                <!-- /ko -->
-                <!-- ko if: status() == "SUCCESS"-->
-                <li data-bind="attr: { class: 'success' + ' ' + randomSuccess() }">
-                    <div class="build-branch-main"  data-bind="text: description()"></div>
-                    <div class="build-type-main" data-bind="text: status()"></div>
-                    <div class="clear"></div>
-                    <!-- ko if: hasProgress() -->
-                       <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
+                </div>
+                <div id="main-branch-status" class="highlight" data-bind="text: mainBuild().status"></div>
+                <div id="main-branch-triggered-by">
+                    <!-- ko if: mainBuild().triggeredBy -->
+                    triggered by <span class="highlight" data-bind="text: mainBuild().triggeredBy"></span>
                     <!-- /ko -->
+                    <!-- ko if: mainBuild().issueId-->
+                    for YouTrack item <span data-bind="text: mainBuild().issueId" class="highlight"></span>
                     <!-- /ko -->
-                </li>
-                </ul>
+                </div>
             </div>
+            <!-- /ko -->
+        </div>
         <div class="dev-panel-history">
         <ul data-bind="foreach: { data: mostRecentDevs }">
                 <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
                     <div class="clear"></div>
-                    <div class="build-status" data-bind="text: status()"></div>
+                    <div class="build-status" data-bind="text: isRunning() ? '' : status"></div>
                     <div class="clear"></div>
                     <!-- ko if: hasProgress() -->
                        <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
@@ -219,7 +201,6 @@
                 </li>
             </ul>
         </div>
-
         <div class="history-title">Most recent test runs</div>
         <div class="history-panel">
         <ul data-bind="foreach: { data: builds.slice(0, 7) }">
@@ -227,7 +208,7 @@
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
                     <div class="clear"></div>
-                    <div class="build-status" data-bind="text: status()"></div>
+                    <div class="build-status" data-bind="text: isRunning() ? '' : status"></div>
                     <div class="clear"></div>
                     <!-- ko if: hasProgress() -->
                        <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
@@ -237,7 +218,7 @@
           </div>
       </div>
 
-	
+    
     <div class="error-box" data-bind="showHide: hasError">
         <div data-bind="text: errorMessage"></div>
     </div>

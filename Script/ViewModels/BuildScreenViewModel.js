@@ -8,80 +8,47 @@
     self.isLoading    = ko.observable(true);
     self.randomClass  = ko.observable(Utils.getRandomClass());
     self.mainBuild    = ko.observable();
-	self.randomClass2 = ko.observable(Utils.getRandomClass2());
-	self.randomClass3 = ko.observable(Utils.getRandomClass3());
-	self.randomClass4 = ko.observable(Utils.getRandomClass4());
-
-//history panels (n-1) data is retrieved from the following:
-	
-	self.mostRecentCompiles = ko.computed(function() {
-		var compileBuilds = ko.utils.arrayFilter(self.builds(), function(build) {
-			return build.buildType() == 'Compile/Build/Unit Test';
-		}, self);
-		
-		return compileBuilds.slice(1,2);
-        var result = JSON.stringify(compileBuilds);
-	});
-	
-	self.mostRecentDevs = ko.computed(function() {
-		var deployToDev = ko.utils.arrayFilter(self.builds(), function(build) {
-			return build.buildType() == 'Deploy to Development';
-		}, self);
-
-		return deployToDev.slice(1,2);
-	});
-	
-	self.mostRecentAccept = ko.computed(function() {
-		var deployToAccept = ko.utils.arrayFilter(self.builds(), function(build) {
-			return build.buildType() == 'Deploy to Accept';
-		}, self);
-		
-		return deployToAccept.slice(1,2);
-	});
-	
-	self.mostRecentSelenium = ko.computed(function() {
-		var executeSeleniumTests = ko.utils.arrayFilter(self.builds(), function(build) {
-			return build.buildType() == 'Execute Selenium Tests';
-		}, self);
-		
-		return executeSeleniumTests.slice(1,2);
-	})
-
-//Current builds retrieved from the following:
-
-    self.mainCompiles = ko.computed(function() {
+    self.randomClass2 = ko.observable(Utils.getRandomClass2());
+    self.randomClass3 = ko.observable(Utils.getRandomClass3());
+    self.randomClass4 = ko.observable(Utils.getRandomClass4());
+    
+    self.mostRecentCompiles = ko.computed(function() {
         var compileBuilds = ko.utils.arrayFilter(self.builds(), function(build) {
             return build.buildType() == 'Compile/Build/Unit Test';
         }, self);
         
-        return compileBuilds.slice(0,1);
+        // return array of just the first one (most recent)
+        return compileBuilds.slice(1,2);
     });
     
-    self.mainDevs = ko.computed(function() {
+    self.mostRecentDevs = ko.computed(function() {
         var deployToDev = ko.utils.arrayFilter(self.builds(), function(build) {
             return build.buildType() == 'Deploy to Development';
         }, self);
-
-        return deployToDev.slice(0,1);
+        
+        // return array of just the first one (most recent)
+        return deployToDev.slice(1,2);
     });
     
-    self.mainAccept = ko.computed(function() {
+    self.mostRecentAccept = ko.computed(function() {
         var deployToAccept = ko.utils.arrayFilter(self.builds(), function(build) {
             return build.buildType() == 'Deploy to Accept';
         }, self);
         
-        return deployToAccept.slice(0,1);
+        // return array of just the first one (most recent)
+        return deployToAccept.slice(1,2);
     });
     
-    self.mainSelenium = ko.computed(function() {
+    self.mostRecentSelenium = ko.computed(function() {
         var executeSeleniumTests = ko.utils.arrayFilter(self.builds(), function(build) {
             return build.buildType() == 'Execute Selenium Tests';
         }, self);
         
-        return executeSeleniumTests.slice(0,1);
+        // return array of just the first one (most recent)
+        return executeSeleniumTests.slice(1,2);
     })
-	
-	
+    
+    
     self.hasError = ko.computed(function () {
         if (!this.errorMessage())
             return false;
@@ -92,10 +59,10 @@
         self.isLoading(true);
         self.loadBuildTypes();
         self.loadMainBuildStatus();
-		
+        
 
         //Load a new build image every so often just for fun
-		// doesn't look great with 4 images changing 
+        // doesn't look great with 4 images changing 
        // setInterval(function () { self.randomClass(Utils.getRandomClass()); }, Settings.buildImageIntervalMs);
 
     };
