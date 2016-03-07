@@ -3,6 +3,8 @@
 //----------------------
 var Utils = {
 
+    
+
     //Returns one of 11 random images for the buid success or fail image
     getRandomClass : function() {
         return 'c' + Math.floor(Math.random() * 11);

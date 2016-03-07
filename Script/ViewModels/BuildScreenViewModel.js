@@ -11,22 +11,23 @@
 	self.randomClass2 = ko.observable(Utils.getRandomClass2());
 	self.randomClass3 = ko.observable(Utils.getRandomClass3());
 	self.randomClass4 = ko.observable(Utils.getRandomClass4());
+
+//history panels (n-1) data is retrieved from the following:
 	
 	self.mostRecentCompiles = ko.computed(function() {
 		var compileBuilds = ko.utils.arrayFilter(self.builds(), function(build) {
 			return build.buildType() == 'Compile/Build/Unit Test';
 		}, self);
 		
-		// return array of just the first one (most recent)
 		return compileBuilds.slice(1,2);
+        var result = JSON.stringify(compileBuilds);
 	});
 	
 	self.mostRecentDevs = ko.computed(function() {
 		var deployToDev = ko.utils.arrayFilter(self.builds(), function(build) {
 			return build.buildType() == 'Deploy to Development';
 		}, self);
-		
-		// return array of just the first one (most recent)
+
 		return deployToDev.slice(1,2);
 	});
 	
@@ -35,7 +36,6 @@
 			return build.buildType() == 'Deploy to Accept';
 		}, self);
 		
-		// return array of just the first one (most recent)
 		return deployToAccept.slice(1,2);
 	});
 	
@@ -44,9 +44,42 @@
 			return build.buildType() == 'Execute Selenium Tests';
 		}, self);
 		
-		// return array of just the first one (most recent)
 		return executeSeleniumTests.slice(1,2);
 	})
+
+//Current builds retrieved from the following:
+
+    self.mainCompiles = ko.computed(function() {
+        var compileBuilds = ko.utils.arrayFilter(self.builds(), function(build) {
+            return build.buildType() == 'Compile/Build/Unit Test';
+        }, self);
+        
+        return compileBuilds.slice(0,1);
+    });
+    
+    self.mainDevs = ko.computed(function() {
+        var deployToDev = ko.utils.arrayFilter(self.builds(), function(build) {
+            return build.buildType() == 'Deploy to Development';
+        }, self);
+
+        return deployToDev.slice(0,1);
+    });
+    
+    self.mainAccept = ko.computed(function() {
+        var deployToAccept = ko.utils.arrayFilter(self.builds(), function(build) {
+            return build.buildType() == 'Deploy to Accept';
+        }, self);
+        
+        return deployToAccept.slice(0,1);
+    });
+    
+    self.mainSelenium = ko.computed(function() {
+        var executeSeleniumTests = ko.utils.arrayFilter(self.builds(), function(build) {
+            return build.buildType() == 'Execute Selenium Tests';
+        }, self);
+        
+        return executeSeleniumTests.slice(0,1);
+    })
 	
 	
     self.hasError = ko.computed(function () {
