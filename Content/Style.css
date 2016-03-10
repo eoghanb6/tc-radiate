@@ -320,7 +320,11 @@ ul {
         background-position: right;
     }
 
-    
+     #failure.davidc {
+        background-image: url('./images/unknown1.png');
+        background-position: bottom right;
+	 }
+		
 #main-branch-name {
     font-size: 2em;
     text-align: left;

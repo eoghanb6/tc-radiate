@@ -38,8 +38,14 @@
 						<div class="clear"></div>
 						<div class="build-status" data-bind="text: latestBuildAndCompile().isRunning() ? '' : latestBuildAndCompile().status"></div>
 						<div class="clear"></div>
+
 						<!-- ko if: latestBuildAndCompile().hasProgress() -->
 						<div class="progress-container" data-bind="attr: { 'data-progress' : latestBuildAndCompile().percentageComplete() }"></div>
+						<!-- /ko -->
+						<!-- ko if: latestBuildAndCompile().triggeredBy() -->
+						Triggered by:
+							<div class="build-type" data-bind="text: latestBuildAndCompile().triggeredBy()"></div>
+						<div class="clear"></div>
 						<!-- /ko -->
 					</div>
 				
@@ -60,6 +66,7 @@
                        <div class="progress-container" data-bind="attr: { 'data-progress' : percentageComplete() }"></div>
                     <!-- /ko -->
                 <!-- /ko -->
+				
                     </li>
                 </ul>
             </div>
@@ -78,6 +85,12 @@
 						<div class="clear"></div>
 						<!-- ko if: latestDeployToAccept().hasProgress() -->
 						<div class="progress-container" data-bind="attr: { 'data-progress' : latestDeployToAccept().percentageComplete() }"></div>
+						<!-- /ko -->
+						<!-- ko if: latestDeployToAccept().triggeredBy() -->
+						Triggered by:
+							<div class="build-type" data-bind="text: latestDeployToAccept().triggeredBy()"></div>
+							
+						<div class="clear"></div>
 						<!-- /ko -->
 					</div>
 				
@@ -115,7 +128,13 @@
 						<!-- ko if: latestSelenium().hasProgress() -->
 						<div class="progress-container" data-bind="attr: { 'data-progress' : latestSelenium().percentageComplete() }"></div>
 						<!-- /ko -->
+						<!-- ko if: latestSelenium().triggeredBy() -->
+						Triggered by:
+							<div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
+						<div class="clear"></div>
+						<!-- /ko -->
 					</div>
+					
 				
 				</li>
 			</ul>
@@ -171,6 +190,11 @@
 						<div class="clear"></div>
 						<!-- ko if: latestDeployToDev().hasProgress() -->
 						<div class="progress-container" data-bind="attr: { 'data-progress' : latestDeployToDev().percentageComplete() }"></div>
+						<!-- /ko -->
+				<!-- ko if: latestDeployToDev().triggeredBy() -->
+						Triggered by:
+							<div class="build-type" data-bind="text: latestDeployToDev().triggeredBy()"></div>
+						<div class="clear"></div>
 						<!-- /ko -->
 					</div>
 				
