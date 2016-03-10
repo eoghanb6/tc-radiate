@@ -28,25 +28,24 @@
             <div class="compile-title">Compile, Build and Unit Tests</div>
             <div class="compile-panel">
             
-            <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
-                <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass() }">
-                    <div id="main-branch-name">
-                        Build <span class="highlight" data-bind="text: mainBuild().number"></span>
-                        <!-- ko if: mainBuild().hasBranchName() -->
-                            on the <span data-bind="text: mainBuild().branchName"></span> branch
-                        <!-- /ko -->
-                    </div>
-                    <div id="main-branch-status" class="highlight" data-bind="text: mainBuild().status"></div>
-                    <div id="main-branch-triggered-by">
-                        <!-- ko if: mainBuild().triggeredBy -->
-                        triggered by <span class="highlight" data-bind="text: mainBuild().triggeredBy"></span>
-                        <!-- /ko -->
-                        <!-- ko if: mainBuild().issueId-->
-                        for YouTrack item <span data-bind="text: mainBuild().issueId" class="highlight"></span>
-                        <!-- /ko -->
-                    </div>
-                </div>
-                <!-- /ko -->
+           	  <!-- ko if: latestBuildAndCompile() != null -->
+			<ul>
+				<li data-bind="attr: { class: latestBuildAndCompile().lowerStatus() }, css: { running: latestBuildAndCompile().isRunning() }">
+				
+					<div>
+						<div class="build-branch" data-bind="text: latestBuildAndCompile().description"></div>
+						<div class="build-type" data-bind="text: latestBuildAndCompile().buildType.name"></div>
+						<div class="clear"></div>
+						<div class="build-status" data-bind="text: latestBuildAndCompile().isRunning() ? '' : latestBuildAndCompile().status"></div>
+						<div class="clear"></div>
+						<!-- ko if: latestBuildAndCompile().hasProgress() -->
+						<div class="progress-container" data-bind="attr: { 'data-progress' : latestBuildAndCompile().percentageComplete() }"></div>
+						<!-- /ko -->
+					</div>
+				
+				</li>
+			</ul>
+			<!-- /ko -->
             </div>
         <div>
             <div class="compile-panel-history">
@@ -67,28 +66,24 @@
         </div>
         <div class="accept-title">Deploy to Accept</div>
         <div class="accept-panel">
-        <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
-        
-            <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass2()}">
-                <div id="main-branch-name">
-                    Build <span class="highlight" data-bind="text: mainBuild().number"></span>
-                    <!-- ko if: mainBuild().hasBranchName() -->
-                        on the <span data-bind="text: mainBuild().branchName"></span> branch
-                    <!-- /ko -->
-                </div>
-                <div id="main-branch-status" class="highlight" data-bind="text: mainBuild().status"></div>
-                <div id="main-branch-triggered-by">
-                    <!-- ko if: mainBuild().triggeredBy -->
-                    triggered by <span class="highlight" data-bind="text: mainBuild().triggeredBy"></span>
-                    <!-- /ko -->
-                    <!-- ko if: mainBuild().issueId-->
-                    for YouTrack item <span data-bind="text: mainBuild().issueId" class="highlight"></span>
-                    <!-- /ko -->
-                </div>
-            </div>
-        
-        
-            <!-- /ko -->
+       	  <!-- ko if: latestDeployToAccept() != null -->
+			<ul>
+				<li data-bind="attr: { class: latestDeployToAccept().lowerStatus() }, css: { running: latestDeployToAccept().isRunning() }">
+				
+					<div>
+						<div class="build-branch" data-bind="text: latestDeployToAccept().description"></div>
+						<div class="build-type" data-bind="text: latestDeployToAccept().buildType.name"></div>
+						<div class="clear"></div>
+						<div class="build-status" data-bind="text: latestDeployToAccept().isRunning() ? '' : latestDeployToAccept().status"></div>
+						<div class="clear"></div>
+						<!-- ko if: latestDeployToAccept().hasProgress() -->
+						<div class="progress-container" data-bind="attr: { 'data-progress' : latestDeployToAccept().percentageComplete() }"></div>
+						<!-- /ko -->
+					</div>
+				
+				</li>
+			</ul>
+			<!-- /ko -->
             
             </div>
         <div class="accept-panel-history">
@@ -107,27 +102,24 @@
         </div>
         <div class="sel-title">Execute Selenium Tests</div>
         <div class="accept-sel-panel">
-        <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
-            <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass4()}">
-                <div id="main-branch-name">
-                    Build <span class="highlight" data-bind="text: mainBuild().number"></span>
-                    <!-- ko if: mainBuild().hasBranchName() -->
-                        on the <span data-bind="text: mainBuild().branchName"></span> branch
-                    <!-- /ko -->
-                </div>
-                <div id="main-branch-status" class="highlight" data-bind="text: mainBuild().status"></div>
-                <div id="main-branch-triggered-by">
-                    <!-- ko if: mainBuild().triggeredBy -->
-                    triggered by <span class="highlight" data-bind="text: mainBuild().triggeredBy"></span>
-                    <!-- /ko -->
-                    <!-- ko if: mainBuild().issueId-->
-                    for YouTrack item <span data-bind="text: mainBuild().issueId" class="highlight"></span>
-                    <!-- /ko -->
-                </div>
-            </div>
-        
-        
-            <!-- /ko -->
+      	  <!-- ko if: latestSelenium() != null -->
+			<ul>
+				<li data-bind="attr: { class: latestSelenium().lowerStatus() }, css: { running: latestSelenium().isRunning() }">
+				
+					<div>
+						<div class="build-branch" data-bind="text: latestSelenium().description"></div>
+						<div class="build-type" data-bind="text: latestSelenium().buildType.name"></div>
+						<div class="clear"></div>
+						<div class="build-status" data-bind="text: latestSelenium().isRunning() ? '' : latestSelenium().status"></div>
+						<div class="clear"></div>
+						<!-- ko if: latestSelenium().hasProgress() -->
+						<div class="progress-container" data-bind="attr: { 'data-progress' : latestSelenium().percentageComplete() }"></div>
+						<!-- /ko -->
+					</div>
+				
+				</li>
+			</ul>
+			<!-- /ko -->
     </div>
     
     
@@ -166,29 +158,32 @@
     <div class="right">
         <div class="dev-title">Deploy to Development</div>
         <div class="dev-panel">
-        <!-- ko if: mainBuild() != null && mainBuild().status() != null -->
-        
-            <div id="main-build" data-bind="attr: { class: mainBuild().lowerStatus() + ' ' + randomClass3() }">
-                <div id="main-branch-name">
-                    Build <span class="highlight" data-bind="text: mainBuild().number"></span>
-                    <!-- ko if: mainBuild().hasBranchName() -->
-                        on the <span data-bind="text: mainBuild().branchName"></span> branch
-                    <!-- /ko -->
-                </div>
-                <div id="main-branch-status" class="highlight" data-bind="text: mainBuild().status"></div>
-                <div id="main-branch-triggered-by">
-                    <!-- ko if: mainBuild().triggeredBy -->
-                    triggered by <span class="highlight" data-bind="text: mainBuild().triggeredBy"></span>
-                    <!-- /ko -->
-                    <!-- ko if: mainBuild().issueId-->
-                    for YouTrack item <span data-bind="text: mainBuild().issueId" class="highlight"></span>
-                    <!-- /ko -->
-                </div>
-            </div>
-            <!-- /ko -->
+      
+	  <!-- ko if: latestDeployToDev() != null -->
+			<ul>
+				<li data-bind="attr: { class: latestDeployToDev().lowerStatus() }, css: { running: latestDeployToDev().isRunning() }">
+				
+					<div>
+						<div class="build-branch" data-bind="text: latestDeployToDev().description"></div>
+						<div class="build-type" data-bind="text: latestDeployToDev().buildType.name"></div>
+						<div class="clear"></div>
+						<div class="build-status" data-bind="text: latestDeployToDev().isRunning() ? '' : latestDeployToDev().status"></div>
+						<div class="clear"></div>
+						<!-- ko if: latestDeployToDev().hasProgress() -->
+						<div class="progress-container" data-bind="attr: { 'data-progress' : latestDeployToDev().percentageComplete() }"></div>
+						<!-- /ko -->
+					</div>
+				
+				</li>
+			</ul>
+			<!-- /ko -->
+	
+	  
         </div>
         <div class="dev-panel-history">
+	
         <ul data-bind="foreach: { data: mostRecentDevs }">
+
                 <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                     <div class="build-branch"  data-bind="text: description()"></div>
                     <div class="build-type" data-bind="text: buildType"></div>
