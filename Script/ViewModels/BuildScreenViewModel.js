@@ -65,13 +65,17 @@
         
         // return array of just the first one (most recent)
         return executeSeleniumTests.slice(1,2);
-    })
-    
+    });  
     
     self.hasError = ko.computed(function () {
         if (!this.errorMessage())
             return false;
         return this.errorMessage().length > 0;
+    }, self);
+
+    self.hasFailed = ko.computed(function () {
+        if (self.status == "Failure")
+            return "Failure";
     }, self);
 
     self.init = function () {
