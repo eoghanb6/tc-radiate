@@ -79,7 +79,8 @@
                 <div class="accept-sel-panel">
               	    <!-- ko if: latestSelenium() != null -->
         			    <ul>
-        				    <li data-bind="attr: { class: latestSelenium().lowerStatus() }, css: { running: latestSelenium().isRunning() }">
+						<!-- ko if: latestSelenium().status() == "FAILURE" -->
+        				    <li class  = "sel-failclass" data-bind="css: { running: latestSelenium().isRunning() }">
         					    <div>
         						    <div class="build-branch" data-bind="text: latestSelenium().description"></div>
         						    <div class="build-type" data-bind="text: latestSelenium().buildType.name"></div>
@@ -101,6 +102,31 @@
             						<!-- /ko -->
                                 </div> 
                             </li>
+						<!-- /ko -->
+						<!-- ko if: latestSelenium().status() == "SUCCESS" -->
+						        				    <li class  = "sel-failclass" data-bind="css: { running: latestSelenium().isRunning() }">
+        					    <div>
+        						    <div class="build-branch" data-bind="text: latestSelenium().description"></div>
+        						    <div class="build-type" data-bind="text: latestSelenium().buildType.name"></div>
+        						    <div class="clear"></div>
+            						<div class="build-status" data-bind="text: latestSelenium().status"></div>
+                                    <div class="clear"></div>
+            						<!-- ko if: latestSelenium().hasProgress() -->
+            						    <div class="progress-container" data-bind="attr: { 'data-progress' : latestSelenium().percentageComplete() }"></div>
+            						<!-- /ko -->
+            						<!-- ko if: latestSelenium().triggeredBy() -->
+            						    Triggered by:
+            							<div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
+            						    <div class="clear"></div>
+            						<!-- /ko -->
+            						<!-- ko if: latestSelenium().status() == "FAILURE" -->
+            						    Reason for failure:
+            						    <div class="build-type" data-bind="text: latestSelenium().statusText"></div>
+                                        <div class="clear"></div>
+            						<!-- /ko -->
+                                </div> 
+                            </li>
+						<!-- /ko -->
             			</ul>
                     <!-- /ko -->	
                 </div>
