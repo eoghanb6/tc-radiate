@@ -8,29 +8,15 @@
     self.errorMessage = ko.observable();
     self.isLoading    = ko.observable(true);
     self.randomClass  = ko.observable(Utils.getRandomClass());
+    self.randomClass2  = ko.observable(Utils.getRandomClass2());
+    self.randomClass3  = ko.observable(Utils.getRandomClass3());
+    self.randomClass4  = ko.observable(Utils.getRandomClass4());
     self.mainBuild    = ko.observable();
-    self.randomClass2 = ko.observable(Utils.getRandomClass2());
-    self.randomClass3 = ko.observable(Utils.getRandomClass3());
-    self.randomClass4 = ko.observable(Utils.getRandomClass4());
 	self.latestBuildAndCompile = ko.observable();
 	self.latestDeployToDev = ko.observable();
 	self.latestDeployToAccept = ko.observable();
-	self.latestSelenium = ko.observable();
-	
-	
-   self.deploysToDevId = ko.computed(function() {
-        var deployToDev = ko.utils.arrayFilter(self.builds(), function(build) {
-            return build.buildType() == 'Deploy to Development';
-			}, self);
-			var deployToDevID = deployToDev[0];
-			return deployToDevID;
-    });
-	
-	
-	
-        
-   
-	
+	self.latestSelenium = ko.observable();     
+   	
     self.mostRecentCompiles = ko.computed(function() {
         var compileBuilds = ko.utils.arrayFilter(self.builds(), function(build) {
             return build.buildType() == 'Compile/Build/Unit Test';

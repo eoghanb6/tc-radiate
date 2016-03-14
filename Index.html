@@ -15,7 +15,7 @@
                    	<!-- ko if: latestBuildAndCompile() != null -->
 					<ul>
             			<ul>
-            				<li data-bind="attr: { class: latestBuildAndCompile().lowerStatus() }, css: { running: latestBuildAndCompile().isRunning() }">
+            				<li data-bind="attr: { class: latestBuildAndCompile().lowerStatus() + ' ' + latestBuildAndCompile().lowerStatus() + randomClass()}">
             					<div>
             						<div class="build-branch" data-bind="text: latestBuildAndCompile().description"></div>
             						<div class="build-type" data-bind="text: latestBuildAndCompile().buildType.name"></div>
@@ -26,9 +26,9 @@
             						    <div class="progress-container" data-bind="attr: { 'data-progress' : latestBuildAndCompile().percentageComplete() }"></div>
             						<!-- /ko -->
             						<!-- ko if: latestBuildAndCompile().triggeredBy() -->
-                						Triggered by:
+                						Triggered by: 
                 						<div class="build-type" data-bind="text: latestBuildAndCompile().triggeredBy()"></div>
-                						<div class="clear"></div>
+                						<div class="clear"></div></span>
             						<!-- /ko -->
             						<!-- ko if: latestBuildAndCompile().status() == 'FAILURE' -->
                 						Reason for failure:
@@ -48,7 +48,7 @@
                     <!-- ko if: latestDeployToAccept() != null -->
                 		<ul>
                 		<ul>
-            				<li data-bind="attr: { class: latestDeployToAccept().lowerStatus() }">
+            				<li data-bind="attr: { class: latestDeployToAccept().lowerStatus() + ' ' + latestDeployToAccept().lowerStatus() + randomClass2()}">
             					<div>
             						<div class="build-branch" data-bind="text: latestDeployToAccept().description"></div>
             						<div class="build-type" data-bind="text: latestDeployToAccept().buildType.name"></div>
@@ -83,7 +83,7 @@
                     <!-- ko if: latestDeployToDev() != null -->
                         <ul>
                         <ul>
-                            <li data-bind="attr: { class: latestDeployToDev().lowerStatus() }, css: { running: latestDeployToDev().isRunning() }">
+                            <li data-bind="attr: { class: latestDeployToDev().lowerStatus() + ' ' + latestDeployToDev().lowerStatus() + randomClass3()}">
                                 <div>
                                     <div class="build-branch" data-bind="text: latestDeployToDev().description"></div>
                                     <div class="build-type" data-bind="text: latestDeployToDev().buildType.name"></div>
@@ -119,7 +119,7 @@
                         <ul>
                         <ul>
                             <!-- ko if: latestSelenium().status() == "FAILURE" -->
-                                <li class="sel-failclass" data-bind="css: { running: latestSelenium().isRunning() }">
+                                <li data-bind="attr: { class: 'sel-failclass' + ' ' + latestSelenium().lowerStatus() + randomClass4()}">
                                     <div>
                                         <div class="build-branch" data-bind="text: latestSelenium().description"></div>
                                         <div class="build-type" data-bind="text: latestSelenium().buildType.name"></div>
@@ -143,7 +143,7 @@
                                 </li>
                             <!-- /ko -->
                             <!-- ko if: latestSelenium().status() == "SUCCESS" -->
-                                <li class="sel-failclass" data-bind="css: { running: latestSelenium().isRunning() }">
+                                <li data-bind="attr: { class: latestSelenium().lowerStatus() + randomClass4()}">
                                     <div>
                                         <div class="build-branch" data-bind="text: latestSelenium().description"></div>
                                         <div class="build-type" data-bind="text: latestSelenium().buildType.name"></div>

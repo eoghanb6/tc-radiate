@@ -24,31 +24,30 @@ ul {
     padding: 0;
 }
 
-    ul ul li {
-        list-style: none;
-        background-color: grey;
-        padding: 10px;
-        margin: 10px;
-        border: 1px solid grey;
-        border-radius: 5px;
-        -webkit-box-shadow: #333 -3px 3px 4px;
-        box-shadow: #333 -3px 3px 4px;
-        color: #FFFFFF;
-		height: 39vh;
-    }
-	
-	    ul li {
-        list-style: none;
-        background-color: grey;
-        padding: 10px;
-        margin: 10px;
-        border: 1px solid grey;
-        border-radius: 5px;
-        -webkit-box-shadow: #333 -3px 3px 4px;
-        box-shadow: #333 -3px 3px 4px;
-        color: #FFFFFF;
-		
-    }
+ul ul li {
+    list-style: none;
+    background-color: grey;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    -webkit-box-shadow: #333 -3px 3px 4px;
+    box-shadow: #333 -3px 3px 4px;
+    color: #FFFFFF;
+	height: 37vh;
+}
+
+ul li {
+    list-style: none;
+    background-color: grey;
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid grey;
+    border-radius: 5px;
+    -webkit-box-shadow: #333 -3px 3px 4px;
+    box-shadow: #333 -3px 3px 4px;
+    color: #FFFFFF;
+}
 
 .error-box {
     position:absolute;
@@ -197,7 +196,6 @@ ul {
 .accept-panel {
 	padding-left: 1%;
     width: 100%;
-    height: 100%;
     overflow: hidden;
     z-index:1;
 }
@@ -226,128 +224,165 @@ ul {
 
     .successc0 {
         background-image: url('./images/happy1.png');
+        background-size: 60%;
         background-position: bottom right;
+        background-repeat: no-repeat;
     }
 
     .failurec0 {
         background-image: url('./images/angry1.png');
-        background-size: 100%;
-        background-position: center;
+        background-size: 60%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .successc1 {
         background-image: url('./images/happy2.png');
-        background-position: bottom right;
+        background-size: 60%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .failurec1 {
         background-image: url('./images/angry2.png');
-        background-position: bottom right;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .successc2 {
         background-image: url('./images/happy3.png');
-        background-position: bottom right;
+        background-size: 60%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .failurec2 {
         background-image: url('./images/angry3.png');
-        background-position: bottom right;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .successc3 {
         background-image: url('./images/happy4.png');
-        background-position: bottom right;
+        background-size: 60%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .failurec3 {
         background-image: url('./images/angry4.png');
         background-position: bottom right;
+        background-repeat: no-repeat;
     }
 
     .successc4 {
         background-image: url('./images/happy5.png');
-        background-position: bottom right;
+        background-size: 60%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .failurec4 {
         background-image: url('./images/angry5.png');
-        background-position: bottom right;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .successc5 {
         background-image: url('./images/happy6.png');
-        background-position: bottom right;
+        background-size: 60%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .failurec5 {
         background-image: url('./images/angry6.png');
-        background-position: bottom right;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .successc6 {
         background-image: url('./images/happy7.png');
-        background-position: bottom right;
+        background-size: 60%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .failurec6 {
         background-image: url('./images/angry7.png');
-        background-position: bottom right;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .successc7 {
         background-image: url('./images/happy8.png');
-        background-position: bottom right;
+        background-size: 60%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .failurec7 {
         background-image: url('./images/angry8.png');
-        background-position: bottom right;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .successc8 {
         background-image: url('./images/happy9.png');
-        background-position: bottom right;
+        background-size: 60%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .failurec8 {
         background-image: url('./images/angry9.png');
-        background-position: bottom right;
+        background-position: bottom left;
+        background-repeat: no-repeat;
     }
 
     .successc9 {
         background-image: url('./images/happy10.png');
-        background-position: bottom right;
+        background-size: 60%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .failurec9 {
         background-image: url('./images/angry10.png');
-        background-position: bottom right;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .failurec10 {
         background-image: url('./images/angry11.png');
-        background-position: bottom right;
+        background-size: 50%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     .successc10 {
-        background-image: url('./images/happy10.png');
-        background-position: bottom right;
+        background-image: url('./images/happy11.png');
+        background-size: 60%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     #main-build.unknown.c0, #main-build.unknown.c2, #main-build.unknown.c4, #main-build.unknown.c6, #main-build.unknown.c8, #main-build.unknown.c10 {
         background-image: url('./images/unknown1.png');
-        background-position: right;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
     #main-build.unknown.c1, #main-build.unknown.c3, #main-build.unknown.c5, #main-build.unknown.c7, #main-build.unknown.c9, #main-build.unknown.c11 {
         background-image: url('./images/unknown2.png');
-        background-position: right;
+        background-position: bottom center;
+        background-repeat: no-repeat;
     }
 
      #failure.davidc {
         background-image: url('./images/unknown1.png');
-        background-position: bottom right;
+        background-position: bottom center;
+        background-repeat: no-repeat;
 	 }
 		
 #main-branch-name {
