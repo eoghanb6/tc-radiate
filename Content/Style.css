@@ -24,7 +24,7 @@ ul {
     padding: 0;
 }
 
-    ul li {
+    ul ul li {
         list-style: none;
         background-color: grey;
         padding: 10px;
@@ -34,6 +34,20 @@ ul {
         -webkit-box-shadow: #333 -3px 3px 4px;
         box-shadow: #333 -3px 3px 4px;
         color: #FFFFFF;
+		height: 39vh;
+    }
+	
+	    ul li {
+        list-style: none;
+        background-color: grey;
+        padding: 10px;
+        margin: 10px;
+        border: 1px solid grey;
+        border-radius: 5px;
+        -webkit-box-shadow: #333 -3px 3px 4px;
+        box-shadow: #333 -3px 3px 4px;
+        color: #FFFFFF;
+		
     }
 
 .error-box {
@@ -129,7 +143,7 @@ ul {
 
 .compile-title {
     opacity: 0.5;
-    font-size: 6vh;
+    font-size: 5.5vh;
     width: 100%;
     text-align: center;
     z-index: 1000;
@@ -137,7 +151,7 @@ ul {
 
 .dev-title {
     opacity: 0.5;
-    font-size: 6vh;
+    font-size: 5.5vh;
     width: 100%;
     text-align: center;
     z-index: 1000;
@@ -145,7 +159,7 @@ ul {
 
 .accept-title {
     opacity: 0.5;
-    font-size: 6vh;
+    font-size: 5.5vh;
     width: 100%;
     text-align: center;
     z-index: 1000;
@@ -153,10 +167,11 @@ ul {
 
 .sel-title {
     opacity: 0.5;
-    font-size: 6vh;
+    font-size: 5.5vh;
     width: 100%;
     text-align: center;
-}
+	z-index: 1000;
+}	
 
 .history-title {
     opacity: 0.5;
@@ -180,8 +195,7 @@ ul {
 }
 
 .accept-panel {
-    padding-top: 1%;
-    padding-left: 1%;
+	padding-left: 1%;
     width: 100%;
     height: 100%;
     overflow: hidden;
@@ -192,20 +206,11 @@ ul {
     padding-left: 1%;
     width: 100%;
     overflow: hidden;
-    z-index:1;
-}
-
-.accept-sel-image-panel {
-    background-size: 100%;
-    background-color: green;
-    position: absolute;
-    left: 20%;
-    top: 35%;
-    width: 100px;
-    height: 100px;
+    z-index:;
 }
 
 .history-panel {
+	padding-top: 1%;
     width: 100%;
     background: black;
     overflow: hidden;
@@ -361,7 +366,7 @@ ul {
     padding-top: 3%;
 }
 
-.build-type, .build-status {
+.build-type, .build-failReason ,.build-status {
     float: right;
 }
 

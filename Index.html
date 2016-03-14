@@ -13,6 +13,7 @@
                 <div class="compile-title">Compile, Build and Unit Tests</div>
                 <div class="compile-panel">
                    	<!-- ko if: latestBuildAndCompile() != null -->
+					<ul>
             			<ul>
             				<li data-bind="attr: { class: latestBuildAndCompile().lowerStatus() }, css: { running: latestBuildAndCompile().isRunning() }">
             					<div>
@@ -31,11 +32,12 @@
             						<!-- /ko -->
             						<!-- ko if: latestBuildAndCompile().status() == 'FAILURE' -->
                 						Reason for failure:
-                						<div class="build-type" data-bind="text: latestBuildAndCompile().statusText"></div>
+                						<div class="build-failReason" data-bind="text: latestBuildAndCompile().statusText"></div>
                 						<div class="clear"></div>
             						<!-- /ko -->
             					</div>
             				</li>
+            			</ul>
             			</ul>
         			<!-- /ko -->
                 </div>
@@ -44,6 +46,7 @@
                 <div class="accept-title">Deploy to Accept</div>
                 <div class="accept-panel">
                     <!-- ko if: latestDeployToAccept() != null -->
+                		<ul>
                 		<ul>
             				<li data-bind="attr: { class: latestDeployToAccept().lowerStatus() }">
             					<div>
@@ -62,11 +65,12 @@
                 					<!-- /ko -->
                 					<!-- ko if: latestDeployToAccept().status() == "FAILURE"-->
                 				    	Reason for failure:
-                						<div class="build-type" data-bind="text: latestDeployToAccept().statusText"></div>
+                						<div class="build-failReason" data-bind="text: latestDeployToAccept().statusText"></div>
                 						<div class="clear"></div>
                 					<!-- /ko -->
                 				</div>
                 			</li>
+                		</ul>
                 		</ul>
                 	<!-- /ko -->
                 </div>
@@ -77,6 +81,7 @@
                 <div class="dev-title">Deploy to Development</div>
                 <div class="dev-panel">
                     <!-- ko if: latestDeployToDev() != null -->
+                        <ul>
                         <ul>
                             <li data-bind="attr: { class: latestDeployToDev().lowerStatus() }, css: { running: latestDeployToDev().isRunning() }">
                                 <div>
@@ -95,11 +100,12 @@
                                     <!-- /ko -->
                                     <!-- ko if: latestDeployToDev().status() == "FAILURE"-->
                                         Reason for failure:
-                                        <div class="build-type" data-bind="text: latestDeployToDev().statusText"></div>
+                                        <div class="build-failReason" data-bind="text: latestDeployToDev().statusText"></div>
                                         <div class="clear"></div>
                                     <!-- /ko -->
                                 </div>
                             </li>
+                        </ul>
                         </ul>
                     <!-- /ko -->      
                 </div>
@@ -110,6 +116,7 @@
                 <div class="accept-sel-panel">
 
                     <!-- ko if: latestSelenium() != null -->
+                        <ul>
                         <ul>
                             <!-- ko if: latestSelenium().status() == "FAILURE" -->
                                 <li class="sel-failclass" data-bind="css: { running: latestSelenium().isRunning() }">
@@ -129,7 +136,7 @@
                                         <!-- /ko -->
                                         <!-- ko if: latestSelenium().status() == "FAILURE" -->
                                             Reason for failure:
-                                            <div class="build-type" data-bind="text: latestSelenium().statusText"></div>
+                                            <div class="build-failReason" data-bind="text: latestSelenium().statusText"></div>
                                             <div class="clear"></div>
                                         <!-- /ko -->
                                     </div> 
@@ -151,14 +158,10 @@
                                             <div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
                                             <div class="clear"></div>
                                         <!-- /ko -->
-                                        <!-- ko if: latestSelenium().status() == "FAILURE" -->
-                                            Reason for failure:
-                                            <div class="build-type" data-bind="text: latestSelenium().statusText"></div>
-                                            <div class="clear"></div>
-                                        <!-- /ko -->
                                     </div> 
                                 </li>
                             <!-- /ko -->
+                        </ul>
                         </ul>
                     <!-- /ko -->    
 
@@ -169,6 +172,7 @@
             <div class="right">
                 <div class="history-title">Most recent test runs</div>
                 <div class="history-panel">
+				
                     <ul data-bind="foreach: { data: builds.slice(0, 5) }">
                         <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                             <div class="build-branch"  data-bind="text: description()"></div>
@@ -181,6 +185,7 @@
                             <!-- /ko -->
                         </li>
                     </ul>
+					
                 </div>
             </div>    
         </div>    
