@@ -12,9 +12,12 @@
             <div class="topLeft">
                 <div class="compile-title">Compile, Build and Unit Tests</div>
                 <div class="compile-panel">
+				
                    	<!-- ko if: latestBuildAndCompile() != null -->
+					<!-- ko if: !latestBuildAndCompile().triggeredBy() -->
 					<ul>
             			<ul>
+						
             				<li data-bind="attr: { class: latestBuildAndCompile().lowerStatus() + ' ' + latestBuildAndCompile().lowerStatus() + randomClass()}">
             					<div>
             						<div class="build-branch" data-bind="text: latestBuildAndCompile().description"></div>
@@ -40,12 +43,44 @@
             			</ul>
             			</ul>
         			<!-- /ko -->
+					<!-- ko if: latestBuildAndCompile().triggeredBy() -->
+					<ul>
+            			<ul>
+						
+            				<li data-bind="attr: { class: latestBuildAndCompile().lowerStatus() + ' ' + latestBuildAndCompile().lowerStatus() + ' ' + latestBuildAndCompile().triggeredBy()}">
+            					<div>
+            						<div class="build-branch" data-bind="text: latestBuildAndCompile().description"></div>
+            						<div class="build-type" data-bind="text: latestBuildAndCompile().buildType.name"></div>
+            						<div class="clear"></div>
+            						<div class="build-status" data-bind="text: latestBuildAndCompile().isRunning() ? '' : latestBuildAndCompile().status"></div>
+            						<div class="clear"></div>
+            						<!-- ko if: latestBuildAndCompile().hasProgress() -->
+            						    <div class="progress-container" data-bind="attr: { 'data-progress' : latestBuildAndCompile().percentageComplete() }"></div>
+            						<!-- /ko -->
+            						<!-- ko if: latestBuildAndCompile().triggeredBy() -->
+                						Triggered by: 
+                						<div class="build-type" data-bind="text: latestBuildAndCompile().triggeredBy()"></div>
+                						<div class="clear"></div></span>
+											<img data-bind="attr:{ src: '/content/users/' + latestBuildAndCompile().triggeredBy() + '.jpg' }"
+            						<!-- /ko -->
+            						<!-- ko if: latestBuildAndCompile().status() == 'FAILURE' -->
+                						Reason for failure:
+                						<div class="build-failReason" data-bind="text: latestBuildAndCompile().statusText"></div>
+                						<div class="clear"></div>
+            						<!-- /ko -->
+            					</div>
+            				</li>
+            			</ul>
+            			</ul>
+					<!-- /ko -->
+					<!-- /ko -->
                 </div>
             </div>    
             <div class="bottomLeft">
                 <div class="accept-title">Deploy to Accept</div>
                 <div class="accept-panel">
                     <!-- ko if: latestDeployToAccept() != null -->
+					<!-- ko if: !latestDeployToAccept().triggeredBy() -->
                 		<ul>
                 		<ul>
             				<li data-bind="attr: { class: latestDeployToAccept().lowerStatus() + ' ' + latestDeployToAccept().lowerStatus() + randomClass2()}">
@@ -70,9 +105,42 @@
                 					<!-- /ko -->
                 				</div>
                 			</li>
-                		</ul>
+                		</ul>						
                 		</ul>
                 	<!-- /ko -->
+					<!-- ko if: latestDeployToAccept().triggeredBy() -->
+					<ul>
+                		<ul>
+            				<li data-bind="attr: { class: latestDeployToAccept().lowerStatus() }">
+            					<div>
+									
+            						<div class="build-branch" data-bind="text: latestDeployToAccept().description"></div>
+            						<div class="build-type" data-bind="text: latestDeployToAccept().buildType.name"></div>
+                					<div class="clear"></div>
+                					<div class="build-status" data-bind="text: latestDeployToAccept().isRunning() ? '' : latestDeployToAccept().status"></div>
+                					<div class="clear"></div>
+                					<!-- ko if: latestDeployToAccept().hasProgress() -->
+            						<div class="progress-container" data-bind="attr: { 'data-progress' : latestDeployToAccept().percentageComplete() }"></div>
+               						<!-- /ko -->
+               						<!-- ko if: latestDeployToAccept().triggeredBy() -->
+               						    Triggered by:
+               							<div class="build-type" data-bind="text: latestDeployToAccept().triggeredBy()"></div>   							
+              						    <div class="clear"></div>
+										<div class="build-branch">
+										<img data-bind="attr:{ src: '/content/users/' + latestDeployToAccept().triggeredBy() + '.jpg' }" />
+										</div>
+                					<!-- /ko -->
+                					<!-- ko if: latestDeployToAccept().status() == "FAILURE"-->
+                				    	Reason for failure:
+                						<div class="build-failReason" data-bind="text: latestDeployToAccept().statusText"></div>
+                						<div class="clear"></div>
+                					<!-- /ko -->
+                				</div>
+                			</li>
+                		</ul>
+                		</ul>
+						<!-- /ko -->
+						<!-- /ko -->
                 </div>
             </div>
         </div> 
@@ -81,6 +149,7 @@
                 <div class="dev-title">Deploy to Development</div>
                 <div class="dev-panel">
                     <!-- ko if: latestDeployToDev() != null -->
+					<!-- ko if: !latestDeployToDev().triggeredBy() -->
                         <ul>
                         <ul>
                             <li data-bind="attr: { class: latestDeployToDev().lowerStatus() + ' ' + latestDeployToDev().lowerStatus() + randomClass3()}">
@@ -108,6 +177,36 @@
                         </ul>
                         </ul>
                     <!-- /ko -->      
+					<!-- ko if: latestDeployToDev().triggeredBy() -->
+					 <ul>
+                        <ul>
+                            <li data-bind="attr: { class: latestDeployToDev().lowerStatus() + ' ' + latestDeployToDev().lowerStatus() + ' ' + latestDeployToDev().triggeredBy() }">
+                                <div>
+                                    <div class="build-branch" data-bind="text: latestDeployToDev().description"></div>
+                                    <div class="build-type" data-bind="text: latestDeployToDev().buildType.name"></div>
+                                    <div class="clear"></div>
+                                    <div class="build-status" data-bind="text: latestDeployToDev().isRunning() ? '' : latestDeployToDev().status"></div>
+                                    <div class="clear"></div>
+                                    <!-- ko if: latestDeployToDev().hasProgress() -->
+                                        <div class="progress-container" data-bind="attr: { 'data-progress' : latestDeployToDev().percentageComplete() }"></div>
+                                    <!-- /ko -->
+                                    <!-- ko if: latestDeployToDev().triggeredBy() -->
+                                        Triggered by:
+                                        <div class="build-type" data-bind="text: latestDeployToDev().triggeredBy()"></div>
+                                        <div class="clear"></div>
+										<img data-bind="attr:{ src: '/content/users/' + latestDeployToDev.triggeredBy() + '.jpg' }"
+                                    <!-- /ko -->
+                                    <!-- ko if: latestDeployToDev().status() == "FAILURE"-->
+                                        Reason for failure:
+                                        <div class="build-failReason" data-bind="text: latestDeployToDev().statusText"></div>
+                                        <div class="clear"></div>
+                                    <!-- /ko -->
+                                </div>
+                            </li>
+                        </ul>
+                        </ul>
+						<!-- /ko -->    
+						<!-- /ko -->    
                 </div>
             </div> 
 
@@ -116,6 +215,7 @@
                 <div class="accept-sel-panel">
 
                     <!-- ko if: latestSelenium() != null -->
+					<!-- ko if: !latestSelenium().triggeredBy() -->
                         <ul>
                         <ul>
                             <!-- ko if: latestSelenium().status() == "FAILURE" -->
@@ -164,7 +264,59 @@
                         </ul>
                         </ul>
                     <!-- /ko -->    
-
+					<!-- ko if: latestSelenium().triggeredBy() -->
+					                        <ul>
+                        <ul>
+                            <!-- ko if: latestSelenium().status() == "FAILURE" -->
+                                <li data-bind="attr: { class: 'sel-failclass' + ' ' + latestSelenium().lowerStatus() + ' ' + latestSelenium().triggeredBy() }">
+                                    <div>
+                                        <div class="build-branch" data-bind="text: latestSelenium().description"></div>
+                                        <div class="build-type" data-bind="text: latestSelenium().buildType.name"></div>
+                                        <div class="clear"></div>
+                                        <div class="build-status" data-bind="text: latestSelenium().status"></div>
+                                        <div class="clear"></div>
+                                        <!-- ko if: latestSelenium().hasProgress() -->
+                                            <div class="progress-container" data-bind="attr: { 'data-progress' : latestSelenium().percentageComplete() }"></div>
+                                        <!-- /ko -->
+                                        <!-- ko if: latestSelenium().triggeredBy() -->
+                                            Triggered by:
+                                            <div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
+                                            <div class="clear"></div>
+											<img data-bind="attr:{ src: '/content/users/' + latestSelenium().triggeredBy() + '.jpg' }"
+                                        <!-- /ko -->
+                                        <!-- ko if: latestSelenium().status() == "FAILURE" -->
+                                            Reason for failure:
+                                            <div class="build-failReason" data-bind="text: latestSelenium().statusText"></div>
+                                            <div class="clear"></div>
+                                        <!-- /ko -->
+                                    </div> 
+                                </li>
+								
+                            <!-- /ko -->
+                            <!-- ko if: latestSelenium().status() == "SUCCESS" -->
+                                <li data-bind="attr: { class: latestSelenium().lowerStatus() + ' ' + latestSelenium().triggeredBy() }">
+                                    <div>
+                                        <div class="build-branch" data-bind="text: latestSelenium().description"></div>
+                                        <div class="build-type" data-bind="text: latestSelenium().buildType.name"></div>
+                                        <div class="clear"></div>
+                                        <div class="build-status" data-bind="text: latestSelenium().status"></div>
+                                        <div class="clear"></div>
+                                        <!-- ko if: latestSelenium().hasProgress() -->
+                                            <div class="progress-container" data-bind="attr: { 'data-progress' : latestSelenium().percentageComplete() }"></div>
+                                        <!-- /ko -->
+                                        <!-- ko if: latestSelenium().triggeredBy() -->
+                                            Triggered by:
+                                            <div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
+                                            <div class="clear"></div>
+											<img data-bind="attr:{ src: '/content/users/' + latestSelenium().triggeredBy() + '.jpg' }"
+                                        <!-- /ko -->
+                                    </div> 
+                                </li>
+                            <!-- /ko -->
+                        </ul>
+                        </ul>
+						<!-- /ko -->
+						<!-- /ko -->
                 </div>
             </div>
         </div>   

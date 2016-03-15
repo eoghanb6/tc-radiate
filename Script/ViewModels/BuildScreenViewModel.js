@@ -15,7 +15,8 @@
 	self.latestBuildAndCompile = ko.observable();
 	self.latestDeployToDev = ko.observable();
 	self.latestDeployToAccept = ko.observable();
-	self.latestSelenium = ko.observable();     
+	self.latestSelenium = ko.observable(); 
+		self.userClass = ko.observable();
    	
     self.mostRecentCompiles = ko.computed(function() {
         var compileBuilds = ko.utils.arrayFilter(self.builds(), function(build) {
@@ -25,6 +26,8 @@
         // return array of just the first one (most recent)
         return compileBuilds.slice(1,2);
     });
+	
+
     
     self.mostRecentDevs = ko.computed(function() {
         var deployToDev = ko.utils.arrayFilter(self.builds(), function(build) {

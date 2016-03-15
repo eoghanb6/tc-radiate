@@ -24,6 +24,8 @@ var Utils = {
     getTsQSParam : function() {
         return "&ts=" + new Date().toTimeString();
     }
+	
+	
 };
 
 //----------------------

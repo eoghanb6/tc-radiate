@@ -49,6 +49,18 @@ ul li {
     color: #FFFFFF;
 }
 
+
+ .img{
+vertical-align: middle;
+width:10vh;
+    display: inline-block;
+   
+    position: absolute;
+
+}	
+	
+	
+}
 .error-box {
     position:absolute;
     bottom: 0;
@@ -122,6 +134,7 @@ ul li {
 .sel-failclass {
     background-color: #ff8000!important;
 	font-size: 3.5vh;
+	background-size: 100%;
 }
 
 .highlight {
@@ -221,6 +234,8 @@ ul li {
     background-repeat: no-repeat;
     background-color: gray;
 }
+
+	
 
     .successc0 {
         background-image: url('./images/happy1.png');
@@ -366,6 +381,14 @@ ul li {
         background-position: bottom center;
         background-repeat: no-repeat;
     }
+	
+	.davidc{
+		 background-image: url('./users/imgres.jpg');
+        background-size: 60%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+		}
+		
 
     #main-build.unknown.c0, #main-build.unknown.c2, #main-build.unknown.c4, #main-build.unknown.c6, #main-build.unknown.c8, #main-build.unknown.c10 {
         background-image: url('./images/unknown1.png');
