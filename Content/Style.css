@@ -148,37 +148,13 @@ ul li {
     clear: both;
 }
 
-.compile-title {
+.compile-title, .dev-title, .sel-title, .accept-title {
     opacity: 0.5;
     font-size: 5.5vh;
     width: 100%;
     text-align: center;
     z-index: 1000;
 }
-
-.dev-title {
-    opacity: 0.5;
-    font-size: 5.5vh;
-    width: 100%;
-    text-align: center;
-    z-index: 1000;
-}
-
-.accept-title {
-    opacity: 0.5;
-    font-size: 5.5vh;
-    width: 100%;
-    text-align: center;
-    z-index: 1000;
-}
-
-.sel-title {
-    opacity: 0.5;
-    font-size: 5.5vh;
-    width: 100%;
-    text-align: center;
-	z-index: 1000;
-}	
 
 .history-title {
     opacity: 0.5;
@@ -187,32 +163,11 @@ ul li {
     text-align: center;
     z-index: 1000;
 }
-.compile-panel {
+.compile-panel, .dev-panel, .accept-panel, .accept-sel-panel {
     padding-left: 1%;
     width: 100%;
     overflow: hidden;
     z-index:1;
-}
-
-.dev-panel {
-    padding-left: 1%;
-    width: 100%;
-    overflow: hidden;
-    z-index:1;
-}
-
-.accept-panel {
-	padding-left: 1%;
-    width: 100%;
-    overflow: hidden;
-    z-index:1;
-}
-
-.accept-sel-panel {
-    padding-left: 1%;
-    width: 100%;
-    overflow: hidden;
-    z-index:;
 }
 
 .history-panel {
