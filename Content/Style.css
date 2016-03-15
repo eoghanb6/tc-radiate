@@ -133,8 +133,10 @@ width:10vh;
 
 .sel-failclass {
     background-color: #ff8000!important;
+
 	font-size: 3.5vh;
 	background-size: 100%;
+
 }
 
 .highlight {
@@ -239,21 +241,21 @@ width:10vh;
 
     .successc0 {
         background-image: url('./images/happy1.png');
-        background-size: 60%;
-        background-position: bottom right;
+        background-size: 40%;
+        background-position: bottom center;
         background-repeat: no-repeat;
     }
 
     .failurec0 {
         background-image: url('./images/angry1.png');
-        background-size: 60%;
+        background-size: 30%;
         background-position: bottom center;
         background-repeat: no-repeat;
     }
 
     .successc1 {
         background-image: url('./images/happy2.png');
-        background-size: 60%;
+        background-size: 40%;
         background-position: bottom center;
         background-repeat: no-repeat;
     }
@@ -261,12 +263,13 @@ width:10vh;
     .failurec1 {
         background-image: url('./images/angry2.png');
         background-position: bottom center;
+        background-size: 50%;
         background-repeat: no-repeat;
     }
 
     .successc2 {
         background-image: url('./images/happy3.png');
-        background-size: 60%;
+        background-size: 40%;
         background-position: bottom center;
         background-repeat: no-repeat;
     }
@@ -274,19 +277,21 @@ width:10vh;
     .failurec2 {
         background-image: url('./images/angry3.png');
         background-position: bottom center;
+        background-size: 40%;
         background-repeat: no-repeat;
     }
 
     .successc3 {
         background-image: url('./images/happy4.png');
-        background-size: 60%;
+        background-size: 50%;
         background-position: bottom center;
         background-repeat: no-repeat;
     }
 
     .failurec3 {
         background-image: url('./images/angry4.png');
-        background-position: bottom right;
+        background-position: bottom left;
+        background-size: 35%;
         background-repeat: no-repeat;
     }
 
@@ -300,25 +305,27 @@ width:10vh;
     .failurec4 {
         background-image: url('./images/angry5.png');
         background-position: bottom center;
+        background-size: 60%;
         background-repeat: no-repeat;
     }
 
     .successc5 {
         background-image: url('./images/happy6.png');
-        background-size: 60%;
+        background-size: 30%;
         background-position: bottom center;
         background-repeat: no-repeat;
     }
 
     .failurec5 {
         background-image: url('./images/angry6.png');
-        background-position: bottom center;
+        background-position: bottom right;
+        background-size: 40%;
         background-repeat: no-repeat;
     }
 
     .successc6 {
         background-image: url('./images/happy7.png');
-        background-size: 60%;
+        background-size: 40%;
         background-position: bottom center;
         background-repeat: no-repeat;
     }
@@ -326,12 +333,13 @@ width:10vh;
     .failurec6 {
         background-image: url('./images/angry7.png');
         background-position: bottom center;
+        background-size: 50%;
         background-repeat: no-repeat;
     }
 
     .successc7 {
         background-image: url('./images/happy8.png');
-        background-size: 60%;
+        background-size: 40%;
         background-position: bottom center;
         background-repeat: no-repeat;
     }
@@ -339,12 +347,13 @@ width:10vh;
     .failurec7 {
         background-image: url('./images/angry8.png');
         background-position: bottom center;
+        background-size: 50%;
         background-repeat: no-repeat;
     }
 
     .successc8 {
         background-image: url('./images/happy9.png');
-        background-size: 60%;
+        background-size: 40%;
         background-position: bottom center;
         background-repeat: no-repeat;
     }
@@ -352,12 +361,13 @@ width:10vh;
     .failurec8 {
         background-image: url('./images/angry9.png');
         background-position: bottom left;
+        background-size: 30%;
         background-repeat: no-repeat;
     }
 
     .successc9 {
         background-image: url('./images/happy10.png');
-        background-size: 60%;
+        background-size: 50%;
         background-position: bottom center;
         background-repeat: no-repeat;
     }
@@ -365,20 +375,21 @@ width:10vh;
     .failurec9 {
         background-image: url('./images/angry10.png');
         background-position: bottom center;
+        background-size: 40%;
         background-repeat: no-repeat;
     }
 
     .failurec10 {
         background-image: url('./images/angry11.png');
-        background-size: 50%;
+        background-size: 40%;
         background-position: bottom center;
         background-repeat: no-repeat;
     }
 
     .successc10 {
         background-image: url('./images/happy11.png');
-        background-size: 60%;
-        background-position: bottom center;
+        background-size: 30%;
+        background-position: bottom left;
         background-repeat: no-repeat;
     }
 	
@@ -402,11 +413,15 @@ width:10vh;
         background-repeat: no-repeat;
     }
 
-     #failure.davidc {
-        background-image: url('./images/unknown1.png');
-        background-position: bottom center;
+    .totalFail {
+        background-color: red;
+        background-position: right;
+        position: absolute;
+        width: 50px;
+        height: 50px;
+        background-image: url('./images/fail.png');
         background-repeat: no-repeat;
-	 }
+    }
 		
 #main-branch-name {
     font-size: 2em;
