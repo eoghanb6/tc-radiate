@@ -35,3 +35,13 @@ Settings.buildTypesUrl = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app
 
 //The url for the status of the build on the main branch
 Settings.buildStatusUrl = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds/branch:' + Settings.mainBranch + ',running:any,canceled:any';
+
+topLeftTitle 		= 'Compile, Build and Unit Tests';
+topRightTitle 		= 'Deploy to Development';
+bottomLeftTitle 	= 'Deploy to Accept';
+bottomRightTitle 	= 'Execute Selenium Tests';
+
+compileBuildID 		='CompileAndUnitTests_CompileAndBuild';
+deployToDevBuildID 	='DeployToDevelopment_DeployToDevelopment';
+seleniumBuildID 	='DeployToAccept_ExecuteSeleniumTests';
+acceptanceBuildID	='DeployToAccept_DeployToAccept';

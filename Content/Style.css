@@ -143,7 +143,7 @@ ul li {
     clear: both;
 }
 
-.compile-title, .dev-title, .sel-title, .accept-title {
+.topLeft-title, .topRight-title, .bottomRight-title, .bottomLeft-title {
     opacity: 0.5;
     font-size: 5.5vmin;
     width: 100%;
@@ -158,7 +158,7 @@ ul li {
     text-align: center;
     z-index: 1000;
 }
-.compile-panel, .dev-panel, .accept-panel, .accept-sel-panel {
+.topLeft-panel, .topRight-panel, .bottomLeft-panel, .bottomRight-panel {
     padding-left: 1%;
     width: 100%;
     overflow: hidden;

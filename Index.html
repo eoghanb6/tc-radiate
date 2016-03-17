@@ -10,8 +10,8 @@
     <div class="page-content" data-bind="showHide: !isFirstLoad()">
         <div>
             <div class="topLeft">
-                <div class="compile-title">Compile, Build and Unit Tests</div>
-                <div class="compile-panel">
+                <div class="topLeft-title" data-bind="text: topLeftTitle"></div>
+                <div class="topLeft-panel">
                    	<!-- ko if: latestBuildAndCompile() != null -->
     					<!-- ko if: !latestBuildAndCompile().triggeredBy() -->
         					<ul>
@@ -67,8 +67,8 @@
                 </div>
             </div>    
             <div class="bottomLeft">
-                <div class="accept-title">Deploy to Accept</div>
-                <div class="accept-panel">
+                <div class="bottomLeft-title" data-bind="text: bottomLeftTitle"></div>
+                <div class="bottomLeft-panel">
                     <!-- ko if: latestDeployToAccept() != null -->
     					<!-- ko if: !latestDeployToAccept().triggeredBy() -->
                     		<ul>
@@ -126,8 +126,8 @@
         </div> 
         <div> 
             <div class="topRight">
-                <div class="dev-title">Deploy to Development</div>
-                <div class="dev-panel">
+                <div class="topRight-title" data-bind="text: topRightTitle"></div>
+                <div class="topRight-panel">
                     <!-- ko if: latestDeployToDev() != null -->
     					<!-- ko if: !latestDeployToDev().triggeredBy() -->
                             <ul>
@@ -183,8 +183,8 @@
                 </div>
             </div> 
             <div class="bottomRight">
-                <div class="sel-title">Execute Selenium Tests</div>
-                <div class="accept-sel-panel">
+                <div class="bottomRight-title" data-bind="text: bottomRightTitle"></div>
+                <div class="bottomRight-panel">
                     <!-- ko if: latestSelenium() != null -->
     					<!-- ko if: !latestSelenium().triggeredBy() -->
                             <ul>

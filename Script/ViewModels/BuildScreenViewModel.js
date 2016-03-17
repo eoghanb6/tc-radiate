@@ -132,7 +132,7 @@
  	self.loadLatestDeployToDev = function () {
          self.isLoading(true);
  		
- 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:DeployToDevelopment_DeployToDevelopment)';
+ 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + deployToDevBuildID + ')';
  		
          $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {
  			
@@ -160,7 +160,7 @@
 		self.loadLatestBuildAndCompile = function () {
          self.isLoading(true);
  		
- 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:CompileAndUnitTests_CompileAndBuild)';
+ 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + compileBuildID + ')';
  		
          $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {
  			
@@ -188,7 +188,7 @@
 	 self.loadLatestDeployToAccept = function () {
          self.isLoading(true);
  		
- 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:DeployToAccept_DeployToAccept)';
+ 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + acceptanceBuildID + ')';
  		
          $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {
  			
@@ -216,7 +216,7 @@
 	 self.loadLatestSelenium = function () {
          self.isLoading(true);
  		
- 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:DeployToAccept_ExecuteSeleniumTests)';
+ 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:'+ seleniumBuildID + ')';
  		
          $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {
  			
