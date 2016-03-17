@@ -13,32 +13,27 @@
                 <div class="compile-title">Compile, Build and Unit Tests</div>
                 <div class="compile-panel">
                    	<!-- ko if: latestBuildAndCompile() != null -->
-					<!-- ko if: !latestBuildAndCompile().triggeredBy() -->
-    					<ul>
-                			<ul>
-                				<li data-bind="attr: { class: latestBuildAndCompile().lowerStatus() + ' ' + latestBuildAndCompile().lowerStatus() + randomClass()}">
-                					<div>
-                						<div class="build-branch" data-bind="text: latestBuildAndCompile().description"></div>
-                						<div class="build-type" data-bind="text: latestBuildAndCompile().buildType.name"></div>
-                						<div class="clear"></div>
-                						<div class="build-status" data-bind="text: latestBuildAndCompile().isRunning() ? '' : latestBuildAndCompile().status"></div>
-                						<div class="clear"></div>
-                						<!-- ko if: latestBuildAndCompile().hasProgress() -->
-                						    <div class="progress-container" data-bind="attr: { 'data-progress' : latestBuildAndCompile().percentageComplete() }"></div>
-                						<!-- /ko -->
-                						<!-- ko if: latestBuildAndCompile().triggeredBy() -->
-                    						Triggered by: 
-                    						<div class="build-type" data-bind="text: latestBuildAndCompile().triggeredBy()"></div>
-                    						<div class="clear"></div></span>
-                						<!-- /ko -->
-                						<!-- ko if: latestBuildAndCompile().status() == 'FAILURE' -->
-                    						Reason for failure:
-                    						<div class="build-failReason" data-bind="text: latestBuildAndCompile().statusText"></div>
+    					<!-- ko if: !latestBuildAndCompile().triggeredBy() -->
+        					<ul>
+                    			<ul>
+                    				<li data-bind="attr: { class: latestBuildAndCompile().lowerStatus() + ' ' + latestBuildAndCompile().lowerStatus() + randomClass()}">
+                    					<div>
+                    						<div class="build-branch" data-bind="text: latestBuildAndCompile().description"></div>
+                    						<div class="build-type" data-bind="text: latestBuildAndCompile().buildType.name"></div>
                     						<div class="clear"></div>
-                						<!-- /ko -->
-                					</div>
-                				</li>
-                			</ul>
+                    						<div class="build-status" data-bind="text: latestBuildAndCompile().isRunning() ? '' : latestBuildAndCompile().status"></div>
+                    						<div class="clear"></div>
+                    						<!-- ko if: latestBuildAndCompile().hasProgress() -->
+                    						    <div class="progress-container" data-bind="attr: { 'data-progress' : latestBuildAndCompile().percentageComplete() }"></div>
+                    						<!-- /ko -->
+                    						<!-- ko if: latestBuildAndCompile().status() == 'FAILURE' -->
+                        						Reason for failure:
+                        						<div class="build-failReason" data-bind="text: latestBuildAndCompile().statusText"></div>
+                        						<div class="clear"></div>
+                    						<!-- /ko -->
+                    					</div>
+                    				</li>
+                    			</ul>
                 			</ul>
             			<!-- /ko -->
     					<!-- ko if: latestBuildAndCompile().triggeredBy() -->
@@ -54,12 +49,10 @@
                     						<!-- ko if: latestBuildAndCompile().hasProgress() -->
                     						    <div class="progress-container" data-bind="attr: { 'data-progress' : latestBuildAndCompile().percentageComplete() }"></div>
                     						<!-- /ko -->
-                    						<!-- ko if: latestBuildAndCompile().triggeredBy() -->
-                        						Triggered by: 
-                        						<div class="build-type" data-bind="text: latestBuildAndCompile().triggeredBy()"></div>
-                        						<div class="clear"></div></span>
-        											<img data-bind="attr:{ src: '/content/users/' + latestBuildAndCompile().triggeredBy() + '.jpg' }" />
-                    						<!-- /ko -->
+                    						Triggered by: 
+                    						<div class="build-type" data-bind="text: latestBuildAndCompile().triggeredBy()"></div>
+                    						<div class="clear"></div></span>
+											<img data-bind="attr:{ src: '/content/users/' + latestBuildAndCompile().triggeredBy() + '.jpg' }" />
                     						<!-- ko if: latestBuildAndCompile().status() == 'FAILURE' -->
                         						Reason for failure:
                         						<div class="build-failReason" data-bind="text: latestBuildAndCompile().statusText"></div>
@@ -90,11 +83,6 @@
                         					<!-- ko if: latestDeployToAccept().hasProgress() -->
                     						<div class="progress-container" data-bind="attr: { 'data-progress' : latestDeployToAccept().percentageComplete() }"></div>
                        						<!-- /ko -->
-                       						<!-- ko if: latestDeployToAccept().triggeredBy() -->
-                       						    Triggered by:
-                       							<div class="build-type" data-bind="text: latestDeployToAccept().triggeredBy()"></div>   							
-                      						    <div class="clear"></div>
-                        					<!-- /ko -->
                         					<!-- ko if: latestDeployToAccept().status() == "FAILURE"-->
                         				    	Reason for failure:
                         						<div class="build-failReason" data-bind="text: latestDeployToAccept().statusText"></div>
@@ -118,12 +106,10 @@
                         					<!-- ko if: latestDeployToAccept().hasProgress() -->
                     						<div class="progress-container" data-bind="attr: { 'data-progress' : latestDeployToAccept().percentageComplete() }"></div>
                        						<!-- /ko -->
-                       						<!-- ko if: latestDeployToAccept().triggeredBy() -->
-                       						    Triggered by:
-                       							<div class="build-type" data-bind="text: latestDeployToAccept().triggeredBy()"></div>   							
-                      						    <div class="clear"></div>
-        										<img data-bind="attr:{ src: '/content/users/' + latestDeployToAccept().triggeredBy() + '.jpg' }" />
-                        					<!-- /ko -->
+                   						    Triggered by:
+                   							<div class="build-type" data-bind="text: latestDeployToAccept().triggeredBy()"></div>   							
+                  						    <div class="clear"></div>
+    										<img data-bind="attr:{ src: '/content/users/' + latestDeployToAccept().triggeredBy() + '.jpg' }" />
                         					<!-- ko if: latestDeployToAccept().status() == "FAILURE"-->
                         				    	Reason for failure:
                         						<div class="build-failReason" data-bind="text: latestDeployToAccept().statusText"></div>
@@ -156,12 +142,7 @@
                                             <!-- ko if: latestDeployToDev().hasProgress() -->
                                                 <div class="progress-container" data-bind="attr: { 'data-progress' : latestDeployToDev().percentageComplete() }"></div>
                                             <!-- /ko -->
-                                            <!-- ko if: latestDeployToDev().triggeredBy() -->
-                                                Triggered by:
-                                                <div class="build-type" data-bind="text: latestDeployToDev().triggeredBy()"></div>
-                                                <div class="clear"></div>
-                                            <!-- /ko -->
-                                            <!-- ko if: latestDeployToDev().status() == "FAILURE"-->
+                                            <!-- ko if: latestDeployToDev().status() == "FAILURE" -->
                                                 Reason for failure:
                                                 <div class="build-failReason" data-bind="text: latestDeployToDev().statusText"></div>
                                                 <div class="clear"></div>
@@ -184,13 +165,11 @@
                                             <!-- ko if: latestDeployToDev().hasProgress() -->
                                                 <div class="progress-container" data-bind="attr: { 'data-progress' : latestDeployToDev().percentageComplete() }"></div>
                                             <!-- /ko -->
-                                            <!-- ko if: latestDeployToDev().triggeredBy() -->
-                                                Triggered by:
-                                                <div class="build-type" data-bind="text: latestDeployToDev().triggeredBy()"></div>
-                                                <div class="clear"></div>
-        										<img data-bind="attr:{ src: '/content/users/' + latestDeployToDev.triggeredBy() + '.jpg' }" />
-                                            <!-- /ko -->
-                                            <!-- ko if: latestDeployToDev().status() == "FAILURE"-->
+                                            Triggered by:
+                                            <div class="build-type" data-bind="text: latestDeployToDev().triggeredBy()"></div>
+                                            <div class="clear"></div>
+    										<img data-bind="attr:{ src: '/content/users/' + latestDeployToDev().triggeredBy() + '.jpg' }" />
+                                            <!-- ko if: latestDeployToDev().status() == "FAILURE" -->
                                                 Reason for failure:
                                                 <div class="build-failReason" data-bind="text: latestDeployToDev().statusText"></div>
                                                 <div class="clear"></div>
@@ -221,16 +200,9 @@
                                                 <!-- ko if: latestSelenium().hasProgress() -->
                                                     <div class="progress-container" data-bind="attr: { 'data-progress' : latestSelenium().percentageComplete() }"></div>
                                                 <!-- /ko -->
-                                                <!-- ko if: latestSelenium().triggeredBy() -->
-                                                    Triggered by:
-                                                    <div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
-                                                    <div class="clear"></div>
-                                                <!-- /ko -->
-                                                <!-- ko if: latestSelenium().status() == "FAILURE" -->
-                                                    Reason for failure:
-                                                    <div class="build-failReason" data-bind="text: latestSelenium().statusText"></div>
-                                                    <div class="clear"></div>
-                                                <!-- /ko -->
+                                                Reason for failure:
+                                                <div class="build-failReason" data-bind="text: latestSelenium().statusText"></div>
+                                                <div class="clear"></div>
                                             </div> 
                                         </li>
                                     <!-- /ko -->
@@ -244,11 +216,6 @@
                                                 <div class="clear"></div>
                                                 <!-- ko if: latestSelenium().hasProgress() -->
                                                     <div class="progress-container" data-bind="attr: { 'data-progress' : latestSelenium().percentageComplete() }"></div>
-                                                <!-- /ko -->
-                                                <!-- ko if: latestSelenium().triggeredBy() -->
-                                                    Triggered by:
-                                                    <div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
-                                                    <div class="clear"></div>
                                                 <!-- /ko -->
                                             </div> 
                                         </li>
@@ -270,17 +237,13 @@
                                                 <!-- ko if: latestSelenium().hasProgress() -->
                                                     <div class="progress-container" data-bind="attr: { 'data-progress' : latestSelenium().percentageComplete() }"></div>
                                                 <!-- /ko -->
-                                                <!-- ko if: latestSelenium().triggeredBy() -->
-                                                    Triggered by:
-                                                    <div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
-                                                    <div class="clear"></div>
-        											<img data-bind="attr:{ src: '/content/users/' + latestSelenium().triggeredBy() + '.jpg' }" />
-                                                <!-- /ko -->
-                                                <!-- ko if: latestSelenium().status() == "FAILURE" -->
-                                                    Reason for failure:
-                                                    <div class="build-failReason" data-bind="text: latestSelenium().statusText"></div>
-                                                    <div class="clear"></div>
-                                                <!-- /ko -->
+                                                Triggered by:
+                                                <div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
+                                                <div class="clear"></div>
+    											<img data-bind="attr:{ src: '/content/users/' + latestSelenium().triggeredBy() + '.jpg' }" />
+                                                Reason for failure:
+                                                <div class="build-failReason" data-bind="text: latestSelenium().statusText"></div>
+                                                <div class="clear"></div>
                                             </div> 
                                         </li>
                                     <!-- /ko -->
@@ -295,12 +258,10 @@
                                                 <!-- ko if: latestSelenium().hasProgress() -->
                                                     <div class="progress-container" data-bind="attr: { 'data-progress' : latestSelenium().percentageComplete() }"></div>
                                                 <!-- /ko -->
-                                                <!-- ko if: latestSelenium().triggeredBy() -->
-                                                    Triggered by:
-                                                    <div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
-                                                    <div class="clear"></div>
-        											<img data-bind="attr:{ src: '/content/users/' + latestSelenium().triggeredBy() + '.jpg' }" />
-                                                <!-- /ko -->
+                                                Triggered by:
+                                                <div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
+                                                <div class="clear"></div>
+    											<img data-bind="attr:{ src: '/content/users/' + latestSelenium().triggeredBy() + '.jpg' }" />
                                             </div> 
                                         </li>
                                     <!-- /ko -->
