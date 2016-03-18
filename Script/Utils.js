@@ -3,21 +3,21 @@
 //----------------------
 var Utils = {
 
-    //Returns one of 11 random images for the buid success or fail image
+    //Returns one of 11 random images for the build success or fail image
     getRandomClass : function() {
-        return 'c' + Math.floor(Math.random() * 11);
+        return 'c' + Math.floor(Math.random() * 12);
     },
 
     getRandomClass2 : function() {
-        return 'c' + Math.floor(Math.random() * 11);
+        return 'c' + Math.floor(Math.random() * 12);
     },
 
     getRandomClass3 : function() {
-        return 'c' + Math.floor(Math.random() * 11);
+        return 'c' + Math.floor(Math.random() * 12);
     },
 
     getRandomClass4 : function() {
-        return 'c' + Math.floor(Math.random() * 11);
+        return 'c' + Math.floor(Math.random() * 12);
     },
     
     //Used to append a timestamp to the url so the result isn't cached

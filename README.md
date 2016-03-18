@@ -3,7 +3,7 @@ tc-radiate
 
 Configuration
 -------------
-To configure tc-radiate with your own TeamCity server go to 'Settings.js' and edit the relevant variables, usually just 'teamCityUrl' with your TeamCity project's URL and 'mainBranch' with the main branch on that project (can be left blank).
+To configure tc-radiate with your own TeamCity server go to 'Settings.js' and edit the relevant variables. The variables which need to be changed are TeamCityUrl, MainBranch, all of the Titles and all of the build IDs in the customisation section.
 
 All user images should be put into the 'Content/users' folder in .jpg format. The image name should be set to the users' TeamCity username.
 

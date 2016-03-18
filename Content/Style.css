@@ -332,7 +332,21 @@ ul li {
         background-size: 30%;
         background-position: bottom left;
         background-repeat: no-repeat;
-    }		
+    }	
+
+    .failurec11 {
+        background-image: url('./images/angry12.png');
+        background-size: 40%;
+        background-position: bottom center;
+        background-repeat: no-repeat;
+    }
+
+    .successc11 {
+        background-image: url('./images/happy12.png');
+        background-size: 40%;
+        background-position: bottom left;
+        background-repeat: no-repeat;
+    }   	
 
     #main-build.unknown.c0, #main-build.unknown.c2, #main-build.unknown.c4, #main-build.unknown.c6, #main-build.unknown.c8, #main-build.unknown.c10 {
         background-image: url('./images/unknown1.png');

@@ -1,6 +1,6 @@
 ﻿var Settings = {
-    //The url that points to team city
-    teamCityUrl: 'http://cm-ci-01.efish.ni',
+    //The url that points to the team city project
+    teamCityUrl: 'Insert TeamCity project URL here',
 
     //The main branch to show the master build status on the right hand panel on the screen
     mainBranch: '',
@@ -22,18 +22,18 @@
 
 //CUSTOMISATION
 //Changes titles above build panels
-topLeftTitle          = 'Compile, Build and Unit Tests';
-topRightTitle         = 'Deploy to Development';
-bottomLeftTitle       = 'Deploy to Accept';
-bottomRightTitle      = 'Execute Selenium Tests';
+topLeftTitle          = 'Insert title here';
+topRightTitle         = 'Insert title here';
+bottomLeftTitle       = 'Insert title here';
+bottomRightTitle      = 'Insert title here';
 
 //Need to be changed according to the ID of each build type you want displayed (Needs to be obtained from the API. The list of all of the build ID's on your project 
 //can be found from the following link: http://*YourTeamCityProjectURL/guestAuth/app/rest/buildTypes ).
 //Alternatively, you can click into the type of build you want displyed from your TeamCity project page and copying the part of the url after '/viewType.html?buildTypeId='.
-topLeftPanelID        = 'CompileAndUnitTests_CompileBuildUnitTest';
-topRightPanelID       = 'Development_WebsiteDeploy';
-bottomLeftPanelID     = 'Accept_DeployToAcce';
-bottomRightPanelID    = 'Accept_AutomatedSeleniumTests';
+topLeftPanelID        = 'Insert buildID here';
+topRightPanelID       = 'Insert buildID here';
+bottomLeftPanelID     = 'Insert buildID here';
+bottomRightPanelID    = 'Insert buildID here';
 
 //How many builds are shown in the history panel
 numberOfHistoryBuilds = 6;
