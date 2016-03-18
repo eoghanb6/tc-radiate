@@ -17,45 +17,7 @@
 	self.latestDeployToAccept   = ko.observable();
 	self.latestSelenium         = ko.observable(); 
 	self.userClass              = ko.observable();
-   	
-    self.mostRecentCompiles = ko.computed(function() {
-        var compileBuilds = ko.utils.arrayFilter(self.builds(), function(build) {
-            return build.buildType() == 'Compile/Build/Unit Test';
-        }, self);
-        
-        // return array of just the first one (most recent)
-        return compileBuilds.slice(1,2);
-    });
-	
-
-    
-    self.mostRecentDevs = ko.computed(function() {
-        var deployToDev = ko.utils.arrayFilter(self.builds(), function(build) {
-            return build.buildType() == 'Deploy to Development';
-        }, self);
-        
-        // return array of just the first one (most recent)
-        return deployToDev.slice(1,2);
-    });
-    
-    self.mostRecentAccept = ko.computed(function() {
-        var deployToAccept = ko.utils.arrayFilter(self.builds(), function(build) {
-            return build.buildType() == 'Deploy to Accept';
-        }, self);
-        
-        // return array of just the first one (most recent)
-        return deployToAccept.slice(1,2);
-    });
-    
-    self.mostRecentSelenium = ko.computed(function() {
-        var executeSeleniumTests = ko.utils.arrayFilter(self.builds(), function(build) {
-            return build.buildType() == 'Execute Selenium Tests';
-        }, self);
-        
-        // return array of just the first one (most recent)
-        return executeSeleniumTests.slice(1,2);
-    });  
-    
+   	    
     self.hasError = ko.computed(function () {
         if (!this.errorMessage())
             return false;
@@ -132,7 +94,7 @@
  	self.loadLatestDeployToDev = function () {
          self.isLoading(true);
  		
- 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + deployToDevBuildID + ')';
+ 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + topRightPanelID + ')';
  		
          $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {
  			
@@ -160,7 +122,7 @@
 		self.loadLatestBuildAndCompile = function () {
          self.isLoading(true);
  		
- 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + compileBuildID + ')';
+ 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + topLeftPanelID + ')';
  		
          $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {
  			
@@ -188,7 +150,7 @@
 	 self.loadLatestDeployToAccept = function () {
          self.isLoading(true);
  		
- 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + acceptanceBuildID + ')';
+ 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + bottomLeftPanelID + ')';
  		
          $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {
  			
@@ -216,7 +178,7 @@
 	 self.loadLatestSelenium = function () {
          self.isLoading(true);
  		
- 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:'+ seleniumBuildID + ')';
+ 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:'+ bottomRightPanelID + ')';
  		
          $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {
  			

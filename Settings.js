@@ -1,6 +1,6 @@
 ﻿var Settings = {
     //The url that points to team city
-    teamCityUrl: 'https://ci-cs.entapps.co',
+    teamCityUrl: 'http://cm-ci-01.efish.ni',
 
     //The main branch to show the master build status on the right hand panel on the screen
     mainBranch: '',
@@ -11,14 +11,33 @@
     proxy: 'proxy-aspnet.ashx?url=',
 
     //How often to call the TeamCity webservices and update the screen
-    checkIntervalMs: 5000, //5000 ms = 5 seconds
+    checkIntervalMs: 10000, //5000 ms = 5 seconds
 
     //How often to refresh the build image;
-    buildImageIntervalMs: 30000, //60000 ms = 1 minute
+    buildImageIntervalMs: 3600000, //60000 ms = 1 minute
 
     //use this to stop the screen from updating automatically e.g. if you manually refresh it.
     enableAutoUpdate: true,
 }
+
+//CUSTOMISATION
+//Changes titles above build panels
+topLeftTitle          = 'Compile, Build and Unit Tests';
+topRightTitle         = 'Deploy to Development';
+bottomLeftTitle       = 'Deploy to Accept';
+bottomRightTitle      = 'Execute Selenium Tests';
+
+//Need to be changed according to the ID of each build type you want displayed (Needs to be obtained from the API. The list of all of the build ID's on your project 
+//can be found from the following link: http://*YourTeamCityProjectURL/guestAuth/app/rest/buildTypes ).
+//Alternatively, you can click into the type of build you want displyed from your TeamCity project page and copying the part of the url after '/viewType.html?buildTypeId='.
+topLeftPanelID        = 'CompileAndUnitTests_CompileBuildUnitTest';
+topRightPanelID       = 'Development_WebsiteDeploy';
+bottomLeftPanelID     = 'Accept_DeployToAcce';
+bottomRightPanelID    = 'Accept_AutomatedSeleniumTests';
+
+//How many builds are shown in the history panel
+numberOfHistoryBuilds = 6;
+
 
 //Allow the settings to be overridden by querystring parameters
 //(url parameters are currently only treated as strings)
@@ -36,12 +55,3 @@ Settings.buildTypesUrl = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app
 //The url for the status of the build on the main branch
 Settings.buildStatusUrl = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds/branch:' + Settings.mainBranch + ',running:any,canceled:any';
 
-topLeftTitle 		= 'Compile, Build and Unit Tests';
-topRightTitle 		= 'Deploy to Development';
-bottomLeftTitle 	= 'Deploy to Accept';
-bottomRightTitle 	= 'Execute Selenium Tests';
-
-compileBuildID 		='CompileAndUnitTests_CompileAndBuild';
-deployToDevBuildID 	='DeployToDevelopment_DeployToDevelopment';
-seleniumBuildID 	='DeployToAccept_ExecuteSeleniumTests';
-acceptanceBuildID	='DeployToAccept_DeployToAccept';

@@ -190,7 +190,7 @@
                             <ul>
                                 <ul>
                                     <!-- ko if: latestSelenium().status() == "FAILURE" -->
-                                        <li data-bind="attr: { class: 'sel-failclass' + ' ' + latestSelenium().lowerStatus() + randomClass4()}">
+                                        <li data-bind="attr: { class: 'sel-failclass' + ' ' + 'failure' + randomClass4()}">
                                             <div>
                                                 <div class="build-branch" data-bind="text: latestSelenium().description"></div>
                                                 <div class="build-type" data-bind="text: latestSelenium().buildType.name"></div>
@@ -207,7 +207,7 @@
                                         </li>
                                     <!-- /ko -->
                                     <!-- ko if: latestSelenium().status() == "SUCCESS" -->
-                                        <li data-bind="attr: { class: latestSelenium().lowerStatus() + randomClass4()}">
+                                        <li data-bind="attr: { class: 'success' + ' ' + 'success' + randomClass4() }">
                                             <div>
                                                 <div class="build-branch" data-bind="text: latestSelenium().description"></div>
                                                 <div class="build-type" data-bind="text: latestSelenium().buildType.name"></div>
@@ -227,7 +227,7 @@
     					    <ul>
                                 <ul>
                                     <!-- ko if: latestSelenium().status() == "FAILURE" -->
-                                        <li data-bind="attr: { class: 'sel-failclass' + ' ' + latestSelenium().lowerStatus() + ' ' + latestSelenium().triggeredBy() }">
+                                        <li data-bind="attr: { class: 'sel-failclass' }">
                                             <div>
                                                 <div class="build-branch" data-bind="text: latestSelenium().description"></div>
                                                 <div class="build-type" data-bind="text: latestSelenium().buildType.name"></div>
@@ -248,7 +248,7 @@
                                         </li>
                                     <!-- /ko -->
                                     <!-- ko if: latestSelenium().status() == "SUCCESS" -->
-                                        <li data-bind="attr: { class: latestSelenium().lowerStatus() + ' ' + latestSelenium().triggeredBy() }">
+                                        <li data-bind="attr: { class: 'success' }">
                                             <div>
                                                 <div class="build-branch" data-bind="text: latestSelenium().description"></div>
                                                 <div class="build-type" data-bind="text: latestSelenium().buildType.name"></div>
@@ -276,7 +276,7 @@
             <div class="right">
                 <div class="history-title">Most recent test runs</div>
                 <div class="history-panel">
-                    <ul data-bind="foreach: { data: builds.slice(0, 5) }">
+                    <ul data-bind="foreach: { data: builds.slice(0, numberOfHistoryBuilds) }">
                         <li data-bind="attr: { class: lowerStatus() }, css: { running: isRunning() }">
                             <div class="build-branch"  data-bind="text: description()"></div>
                             <div class="build-type" data-bind="text: buildType"></div>
