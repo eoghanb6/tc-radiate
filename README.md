@@ -1,6 +1,6 @@
 tc-radiate
 ==========
-
+![Screenshot](/screenshot.png)
 Configuration
 -------------
 To configure tc-radiate with your own TeamCity server go to 'Settings.js' and edit the relevant variables. The variables which need to be changed are TeamCityUrl, MainBranch, all of the Titles and all of the build IDs in the customisation section.
