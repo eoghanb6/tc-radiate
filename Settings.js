@@ -1,8 +1,8 @@
 ﻿var Settings = {
     //The url that points to the team city project
-    teamCityUrl: 'Insert TeamCity project URL here',
+    teamCityUrl: 'Insert TeamCity URL here',
 
-    //The main branch to show the master build status on the right hand panel on the screen
+    //The main branch to show the build status (leave blank if unsure)
     mainBranch: '',
 
     //Proxy to handle the cross domain ajax request.
@@ -11,10 +11,10 @@
     proxy: 'proxy-aspnet.ashx?url=',
 
     //How often to call the TeamCity webservices and update the screen
-    checkIntervalMs: 10000, //5000 ms = 5 seconds
+    checkIntervalMs: 5000, //5000 ms = 5 seconds
 
     //How often to refresh the build image;
-    buildImageIntervalMs: 3600000, //60000 ms = 1 minute
+    buildImageIntervalMs: 60000, //60000 ms = 1 minute
 
     //use this to stop the screen from updating automatically e.g. if you manually refresh it.
     enableAutoUpdate: true,
@@ -28,12 +28,12 @@ bottomLeftTitle       = 'Insert title here';
 bottomRightTitle      = 'Insert title here';
 
 //Need to be changed according to the ID of each build type you want displayed (Needs to be obtained from the API. The list of all of the build ID's on your project 
-//can be found from the following link: http://*YourTeamCityProjectURL/guestAuth/app/rest/buildTypes ).
+//can be found from the following link: *YourTeamCityProjectURL*/guestAuth/app/rest/buildTypes ).
 //Alternatively, you can click into the type of build you want displyed from your TeamCity project page and copying the part of the url after '/viewType.html?buildTypeId='.
-topLeftPanelID        = 'Insert buildID here';
-topRightPanelID       = 'Insert buildID here';
-bottomLeftPanelID     = 'Insert buildID here';
-bottomRightPanelID    = 'Insert buildID here';
+topLeftPanelID        = 'Insert build ID here';
+topRightPanelID       = 'Insert build ID here';
+bottomLeftPanelID     = 'Insert build ID here';
+bottomRightPanelID    = 'Insert build ID here';
 
 //How many builds are shown in the history panel
 numberOfHistoryBuilds = 6;
@@ -46,7 +46,7 @@ jQuery.extend(Settings, UrlParams);
 //----------------------
 // TEAM CITY URLS
 //----------------------
-//The url for the list of all builds on the left hand side of the screen
+//The url for the list of all builds on the right hand side of the screen
 Settings.buildsUrl = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=running:any,branch:branched:any,count:40';
 
 //The url for the list of build types (used for mapping the build id (e.g. bt11) to the name (e.g. Website Tests)

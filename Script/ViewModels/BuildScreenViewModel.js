@@ -3,7 +3,6 @@
 
     self.isFirstLoad            = ko.observable(true);
     self.builds                 = ko.observableArray();
-    self.deploysToDev           = ko.observableArray();
     self.buildTypes             = ko.observableArray();
     self.errorMessage           = ko.observable();
     self.isLoading              = ko.observable(true);
@@ -11,12 +10,10 @@
     self.randomClass2           = ko.observable(Utils.getRandomClass2());
     self.randomClass3           = ko.observable(Utils.getRandomClass3());
     self.randomClass4           = ko.observable(Utils.getRandomClass4());
-    self.mainBuild              = ko.observable();
 	self.latestBuildAndCompile  = ko.observable();
 	self.latestDeployToDev      = ko.observable();
 	self.latestDeployToAccept   = ko.observable();
 	self.latestSelenium         = ko.observable(); 
-	self.userClass              = ko.observable();
    	    
     self.hasError = ko.computed(function () {
         if (!this.errorMessage())
@@ -24,21 +21,14 @@
         return this.errorMessage().length > 0;
     }, self);
 
-    self.hasFailed = ko.computed(function () {
-        if (self.status == "Failure")
-            return "Failure";
-    }, self);
-
     self.init = function () {
         self.isLoading(true);
         self.loadBuildTypes();
         self.loadMainBuildStatus();
         
-
         //Load a new build image every so often just for fun
         // doesn't look great with 4 images changing 
-       // setInterval(function () { self.randomClass(Utils.getRandomClass()); }, Settings.buildImageIntervalMs);
-
+        // setInterval(function () { self.randomClass(Utils.getRandomClass()); }, Settings.buildImageIntervalMs);
     };
 
     self.loadAllBuilds = function () {
@@ -89,119 +79,82 @@
             self.isLoading(false);
         });
     };
-	
 		
  	self.loadLatestDeployToDev = function () {
-         self.isLoading(true);
- 		
+        self.isLoading(true);
  		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + topRightPanelID + ')';
- 		
-         $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {
- 			
+        $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {	
  			var basicBuildInfoForLatest = latestBuildsForType.build[0];
- 			
  			var urlForDetailedBuildInfo = Settings.proxy + Settings.teamCityUrl + basicBuildInfoForLatest.href;
- 			
  			$.getJSON(urlForDetailedBuildInfo, function (data) {
- 				
  				var detailedBuildInfo = data;
- 			
  				self.latestDeployToDev(ko.mapping.fromJS(data, {
-                 create: function(options) {
-                     return new MainBuildViewModel(options.data, self.buildTypes());
-                 }
-             }));
- 				
+                    create: function(options) {
+                        return new MainBuildViewModel(options.data, self.buildTypes());
+                    }
+                }));	
  			}).always(function (){
  				self.isLoading(false);
- 			});
- 			
-         });
-     };
+ 			});		
+        });
+    };
+
+    self.loadLatestBuildAndCompile = function () {
+        self.isLoading(true);
+        var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + topLeftPanelID + ')';
+        $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {    
+            var basicBuildInfoForLatest = latestBuildsForType.build[0];
+            var urlForDetailedBuildInfo = Settings.proxy + Settings.teamCityUrl + basicBuildInfoForLatest.href;
+            $.getJSON(urlForDetailedBuildInfo, function (data) {
+                var detailedBuildInfo = data;
+                self.latestBuildAndCompile(ko.mapping.fromJS(data, {
+                    create: function(options) {
+                        return new MainBuildViewModel(options.data, self.buildTypes());
+                    }
+                }));    
+            }).always(function (){
+                self.isLoading(false);
+            });     
+        });
+    };
  	
-		self.loadLatestBuildAndCompile = function () {
-         self.isLoading(true);
- 		
- 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + topLeftPanelID + ')';
- 		
-         $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {
- 			
- 			var basicBuildInfoForLatest = latestBuildsForType.build[0];
- 			
- 			var urlForDetailedBuildInfo = Settings.proxy + Settings.teamCityUrl + basicBuildInfoForLatest.href;
- 			
- 			$.getJSON(urlForDetailedBuildInfo, function (data) {
- 				
- 				var detailedBuildInfo = data;
- 			
- 				self.latestBuildAndCompile(ko.mapping.fromJS(data, {
-                 create: function(options) {
-                     return new MainBuildViewModel(options.data, self.buildTypes());
-                 }
-             }));
- 				
- 			}).always(function (){
- 				self.isLoading(false);
- 			});
- 			
-         });
-     };
+	self.loadLatestDeployToAccept = function () {
+        self.isLoading(true);
+        var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + bottomLeftPanelID + ')';
+        $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {    
+            var basicBuildInfoForLatest = latestBuildsForType.build[0];
+            var urlForDetailedBuildInfo = Settings.proxy + Settings.teamCityUrl + basicBuildInfoForLatest.href;
+            $.getJSON(urlForDetailedBuildInfo, function (data) {
+                var detailedBuildInfo = data;
+                self.latestDeployToAccept(ko.mapping.fromJS(data, {
+                    create: function(options) {
+                        return new MainBuildViewModel(options.data, self.buildTypes());
+                    }
+                }));    
+            }).always(function (){
+                self.isLoading(false);
+            });     
+        });
+    };
 	 
-	 self.loadLatestDeployToAccept = function () {
-         self.isLoading(true);
- 		
- 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + bottomLeftPanelID + ')';
- 		
-         $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {
- 			
- 			var basicBuildInfoForLatest = latestBuildsForType.build[0];
- 			
- 			var urlForDetailedBuildInfo = Settings.proxy + Settings.teamCityUrl + basicBuildInfoForLatest.href;
- 			
- 			$.getJSON(urlForDetailedBuildInfo, function (data) {
- 				
- 				var detailedBuildInfo = data;
- 			
- 				self.latestDeployToAccept(ko.mapping.fromJS(data, {
-                 create: function(options) {
-                     return new MainBuildViewModel(options.data, self.buildTypes());
-                 }
-             }));
- 				
- 			}).always(function (){
- 				self.isLoading(false);
- 			});
- 			
-         });
-     };
-	 
-	 self.loadLatestSelenium = function () {
-         self.isLoading(true);
- 		
- 		var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:'+ bottomRightPanelID + ')';
- 		
-         $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {
- 			
- 			var basicBuildInfoForLatest = latestBuildsForType.build[0];
- 			
- 			var urlForDetailedBuildInfo = Settings.proxy + Settings.teamCityUrl + basicBuildInfoForLatest.href;
- 			
- 			$.getJSON(urlForDetailedBuildInfo, function (data) {
- 				
- 				var detailedBuildInfo = data;
- 			
- 				self.latestSelenium(ko.mapping.fromJS(data, {
-                 create: function(options) {
-                     return new MainBuildViewModel(options.data, self.buildTypes());
-                 }
-             }));
- 				
- 			}).always(function (){
- 				self.isLoading(false);
- 			});
- 			
-         });
-     };
+	self.loadLatestSelenium = function () {
+        self.isLoading(true);
+        var urlForBasicBuildInfo = Settings.proxy + Settings.teamCityUrl + '/guestAuth/app/rest/builds?locator=buildType:(id:' + bottomRightPanelID + ')';
+        $.getJSON(urlForBasicBuildInfo, function (latestBuildsForType) {    
+            var basicBuildInfoForLatest = latestBuildsForType.build[0];
+            var urlForDetailedBuildInfo = Settings.proxy + Settings.teamCityUrl + basicBuildInfoForLatest.href;
+            $.getJSON(urlForDetailedBuildInfo, function (data) {
+                var detailedBuildInfo = data;
+                self.latestSelenium(ko.mapping.fromJS(data, {
+                    create: function(options) {
+                        return new MainBuildViewModel(options.data, self.buildTypes());
+                    }
+                }));    
+            }).always(function (){
+                self.isLoading(false);
+            });     
+        });
+    };
 
     self.init();
 };

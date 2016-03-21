@@ -350,12 +350,14 @@ ul li {
 
     #main-build.unknown.c0, #main-build.unknown.c2, #main-build.unknown.c4, #main-build.unknown.c6, #main-build.unknown.c8, #main-build.unknown.c10 {
         background-image: url('./images/unknown1.png');
+        background-size: 50%;
         background-position: bottom center;
         background-repeat: no-repeat;
     }
 
     #main-build.unknown.c1, #main-build.unknown.c3, #main-build.unknown.c5, #main-build.unknown.c7, #main-build.unknown.c9, #main-build.unknown.c11 {
         background-image: url('./images/unknown2.png');
+        background-size: 50%;
         background-position: bottom center;
         background-repeat: no-repeat;
     }
