@@ -5,7 +5,7 @@ Configuration
 -------------
 To configure tc-radiate with your own TeamCity server go to 'Settings.js' and edit the relevant variables. The variables which need to be changed are TeamCityUrl, MainBranch, all of the Titles and all of the build IDs in the customisation section.
 
-All user images should be put into the 'Content/users' folder in .jpg format. The image name should be set to the users' TeamCity username.
+All user images should be put into the 'Content/users' folder in .jpg, .png or .gif format. The image name should be set to the users' TeamCity username.
 
 The size of the user images might appear too small or too big depending on the size of screen it is being displayed on. This can easily be changed by changing the 'height: 180px' of the 'img' class at the top of the 'Style.css' file to something bigger or smaller depending on your needs.
 
@@ -35,7 +35,7 @@ Setting up IIS
 
 General Information
 -------------------
-If an image with a users username has not be placed in the Content/users folder in jpg format, then no image will be displayed when that user triggers a test. 
+If an image with a users username has not be placed in the Content/users folder in jpg, png or gif format, then no image will be displayed when that user triggers a test. 
 
 A user image will only appear when someone has triggered the test; otherwise a random meme will appear.
 

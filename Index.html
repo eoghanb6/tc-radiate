@@ -52,7 +52,9 @@
                     						Triggered by: 
                     						<div class="build-type" data-bind="text: latestBuildAndCompile().triggeredBy()"></div>
                     						<div class="clear"></div></span>
-											<img data-bind="attr:{ src: '/content/users/' + latestBuildAndCompile().triggeredBy() + '.jpg' }" />
+											<img data-bind="attr:{ src: '/content/users/' + latestBuildAndCompile().triggeredBy() + '.jpg' }" onerror='this.style.display = "none"' />
+                                            <img data-bind="attr:{ src: '/content/users/' + latestBuildAndCompile().triggeredBy() + '.png' }" onerror='this.style.display = "none"' />
+                                            <img data-bind="attr:{ src: '/content/users/' + latestBuildAndCompile().triggeredBy() + '.gif' }" onerror='this.style.display = "none"' />
                     						<!-- ko if: latestBuildAndCompile().status() == 'FAILURE' -->
                         						Reason for failure:
                         						<div class="build-failReason" data-bind="text: latestBuildAndCompile().statusText"></div>
@@ -109,7 +111,9 @@
                    						    Triggered by:
                    							<div class="build-type" data-bind="text: latestDeployToAccept().triggeredBy()"></div>   							
                   						    <div class="clear"></div>
-    										<img data-bind="attr:{ src: '/content/users/' + latestDeployToAccept().triggeredBy() + '.jpg' }" />
+    										<img data-bind="attr:{ src: '/content/users/' + latestDeployToAccept().triggeredBy() + '.jpg' }" onerror='this.style.display = "none"' />
+                                            <img data-bind="attr:{ src: '/content/users/' + latestDeployToAccept().triggeredBy() + '.png' }" onerror='this.style.display = "none"' />   
+                                            <img data-bind="attr:{ src: '/content/users/' + latestDeployToAccept().triggeredBy() + '.gif' }" onerror='this.style.display = "none"' />
                         					<!-- ko if: latestDeployToAccept().status() == "FAILURE"-->
                         				    	Reason for failure:
                         						<div class="build-failReason" data-bind="text: latestDeployToAccept().statusText"></div>
@@ -168,7 +172,9 @@
                                             Triggered by:
                                             <div class="build-type" data-bind="text: latestDeployToDev().triggeredBy()"></div>
                                             <div class="clear"></div>
-    										<img data-bind="attr:{ src: '/content/users/' + latestDeployToDev().triggeredBy() + '.jpg' }" />
+    										<img data-bind="attr:{ src: '/content/users/' + latestDeployToDev().triggeredBy() + '.jpg' }" onerror='this.style.display = "none"' />
+                                            <img data-bind="attr:{ src: '/content/users/' + latestDeployToDev().triggeredBy() + '.png' }" onerror='this.style.display = "none"' />
+                                            <img data-bind="attr:{ src: '/content/users/' + latestDeployToDev().triggeredBy() + '.gif' }" onerror='this.style.display = "none"' />
                                             <!-- ko if: latestDeployToDev().status() == "FAILURE" -->
                                                 Reason for failure:
                                                 <div class="build-failReason" data-bind="text: latestDeployToDev().statusText"></div>
@@ -240,7 +246,9 @@
                                                 Triggered by:
                                                 <div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
                                                 <div class="clear"></div>
-    											<img data-bind="attr:{ src: '/content/users/' + latestSelenium().triggeredBy() + '.jpg' }" />
+    											<img data-bind="attr:{ src: '/content/users/' + latestSelenium().triggeredBy() + '.jpg' }" onerror='this.style.display = "none"' />
+                                                <img data-bind="attr:{ src: '/content/users/' + latestSelenium().triggeredBy() + '.png' }" onerror='this.style.display = "none"' />
+                                                <img data-bind="attr:{ src: '/content/users/' + latestSelenium().triggeredBy() + '.gif' }" onerror='this.style.display = "none"' />
                                                 Reason for failure:
                                                 <div class="build-failReason" data-bind="text: latestSelenium().statusText"></div>
                                                 <div class="clear"></div>
@@ -261,7 +269,9 @@
                                                 Triggered by:
                                                 <div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
                                                 <div class="clear"></div>
-    											<img data-bind="attr:{ src: '/content/users/' + latestSelenium().triggeredBy() + '.jpg' }" />
+    											<img data-bind="attr:{ src: '/content/users/' + latestSelenium().triggeredBy() + '.jpg' }" onerror='this.style.display = "none"' />
+                                                <img data-bind="attr:{ src: '/content/users/' + latestSelenium().triggeredBy() + '.png' }" onerror='this.style.display = "none"' />
+                                                <img data-bind="attr:{ src: '/content/users/' + latestSelenium().triggeredBy() + '.gif' }" onerror='this.style.display = "none"' />
                                             </div> 
                                         </li>
                                     <!-- /ko -->
