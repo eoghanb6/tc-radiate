@@ -6,6 +6,7 @@
     self.buildTypes             = ko.observableArray();
     self.errorMessage           = ko.observable();
     self.isLoading              = ko.observable(true);
+    self.mainBuild              = ko.observable();
     self.randomClass            = ko.observable(Utils.getRandomClass());
     self.randomClass2           = ko.observable(Utils.getRandomClass2());
     self.randomClass3           = ko.observable(Utils.getRandomClass3());
