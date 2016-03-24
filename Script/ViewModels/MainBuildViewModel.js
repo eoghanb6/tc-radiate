@@ -10,6 +10,9 @@
             if(self.triggered && self.triggered.user && self.triggered.user.username)
                 return self.triggered.user.username();
 
+            if(self.lastChanges && self.lastChanges.change && self.lastChanges.change().length > 0)
+                return self.lastChanges.change()[0].username();
+
             return null;
         });
     }
