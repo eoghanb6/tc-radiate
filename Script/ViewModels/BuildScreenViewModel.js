@@ -22,6 +22,10 @@
         return this.errorMessage().length > 0;
     }, self);
 
+    //sets the user images to a size which is relative to the screen
+    var imgHeight = $(window).height() * 0.2;
+    $('img').height(imgHeight + 'px');
+
     self.init = function () {
         self.isLoading(true);
         self.loadBuildTypes();

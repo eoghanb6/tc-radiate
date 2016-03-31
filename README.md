@@ -7,8 +7,6 @@ To configure tc-radiate with your own TeamCity server go to 'Settings.js' and ed
 
 All user images should be put into the 'Content/users' folder in .jpg, .png or .gif format. The image name should be set to the users' TeamCity username.
 
-The size of the user images might appear too small or too big depending on the size of screen it is being displayed on. This can easily be changed by changing the 'height: 180px' of the 'img' class at the top of the 'Style.css' file to something bigger or smaller depending on your needs.
-
 Proxy
 -----
 A proxy is required to request the team city web services. This is because javascript won't let you do a cross domain request in most browsers. All the proxy needs to to is request the web service on behalf of the JavaScript whilst running on the same domain.
@@ -37,6 +35,6 @@ General Information
 -------------------
 If an image with a users username has not be placed in the Content/users folder in jpg, png or gif format, then no image will be displayed when that user triggers a test. 
 
-A user image will only appear when someone has triggered the test; otherwise a random meme will appear.
+A user image will only appear when someone has triggered the test or made the most recent commit to GitHub; otherwise a random meme will appear.
 
 A reason for failure will only appear when a test has failed, although it only displays the status text of the test, so may not always give a sensible reason for failure. 
