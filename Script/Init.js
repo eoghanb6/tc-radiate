@@ -1,4 +1,4 @@
-﻿$(document).ready(function () {
+$(document).ready(function () {
 
     //bind the knockoutjs model to the html
     var viewModel = new BuildScreenViewModel();
@@ -20,6 +20,5 @@ $(document).ajaxSuccess(function () {
             $(obj).progressbar("value", parseInt($(obj).attr("data-progress")));
         else
             $(obj).progressbar({ value: parseInt($(obj).attr("data-progress")) });
-
     });
 });

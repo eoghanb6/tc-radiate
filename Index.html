@@ -13,7 +13,7 @@
                 <div class="topLeft-title" data-bind="text: topLeftTitle"></div>
                 <div class="topLeft-panel">
                    	<!-- ko if: latestBuildAndCompile() != null -->
-    					<!-- ko if: !latestBuildAndCompile().triggeredBy() -->
+    					<!-- ko if: !Settings.enableUserImages -->
         					<ul>
                     			<ul>
                     				<li data-bind="attr: { class: latestBuildAndCompile().lowerStatus() + ' ' + latestBuildAndCompile().lowerStatus() + randomClass()}">
@@ -26,6 +26,9 @@
                     						<!-- ko if: latestBuildAndCompile().hasProgress() -->
                     						    <div class="progress-container" data-bind="attr: { 'data-progress' : latestBuildAndCompile().percentageComplete() }"></div>
                     						<!-- /ko -->
+                                            Triggered by:
+                                            <div class="build-type" data-bind="text: latestBuildAndCompile().triggeredBy()"></div>
+                                            <div class="clear"></div>
                     						<!-- ko if: latestBuildAndCompile().status() == 'FAILURE' -->
                         						Reason for failure:
                         						<div class="build-failReason" data-bind="text: latestBuildAndCompile().statusText"></div>
@@ -36,7 +39,7 @@
                     			</ul>
                 			</ul>
             			<!-- /ko -->
-    					<!-- ko if: latestBuildAndCompile().triggeredBy() -->
+    					<!-- ko if: Settings.enableUserImages -->
         					<ul>
                     			<ul>
                     				<li data-bind="attr: { class: latestBuildAndCompile().lowerStatus() + ' ' + latestBuildAndCompile().lowerStatus() + ' ' + latestBuildAndCompile().triggeredBy()}">
@@ -52,7 +55,7 @@
                     						Triggered by: 
                     						<div class="build-type" data-bind="text: latestBuildAndCompile().triggeredBy()"></div>
                     						<div class="clear"></div></span>
-											<img data-bind="attr:{ src: '/content/users/' + latestBuildAndCompile().triggeredBy() + '.jpg' }" onerror='this.style.display = "none"' />
+    										<img data-bind="attr:{ src: '/content/users/' + latestBuildAndCompile().triggeredBy() + '.jpg' }" onerror='this.style.display = "none"' />
                                             <img data-bind="attr:{ src: '/content/users/' + latestBuildAndCompile().triggeredBy() + '.png' }" onerror='this.style.display = "none"' />
                                             <img data-bind="attr:{ src: '/content/users/' + latestBuildAndCompile().triggeredBy() + '.gif' }" onerror='this.style.display = "none"' />
                     						<!-- ko if: latestBuildAndCompile().status() == 'FAILURE' -->
@@ -72,7 +75,7 @@
                 <div class="bottomLeft-title" data-bind="text: bottomLeftTitle"></div>
                 <div class="bottomLeft-panel">
                     <!-- ko if: latestDeployToAccept() != null -->
-    					<!-- ko if: !latestDeployToAccept().triggeredBy() -->
+    					<!-- ko if: !Settings.enableUserImages -->
                     		<ul>
                         		<ul>
                     				<li data-bind="attr: { class: latestDeployToAccept().lowerStatus() + ' ' + latestDeployToAccept().lowerStatus() + randomClass2()}">
@@ -85,6 +88,9 @@
                         					<!-- ko if: latestDeployToAccept().hasProgress() -->
                     						<div class="progress-container" data-bind="attr: { 'data-progress' : latestDeployToAccept().percentageComplete() }"></div>
                        						<!-- /ko -->
+                                            Triggered by:
+                                            <div class="build-type" data-bind="text: latestDeployToAccept().triggeredBy()"></div>
+                                            <div class="clear"></div>
                         					<!-- ko if: latestDeployToAccept().status() == "FAILURE"-->
                         				    	Reason for failure:
                         						<div class="build-failReason" data-bind="text: latestDeployToAccept().statusText"></div>
@@ -95,7 +101,7 @@
                         		</ul>						
                     		</ul>
                     	<!-- /ko -->
-    					<!-- ko if: latestDeployToAccept().triggeredBy() -->
+                        <!-- ko if: Settings.enableUserImages -->
         					<ul>
                         		<ul>
                     				<li data-bind="attr: { class: latestDeployToAccept().lowerStatus() }">
@@ -113,7 +119,7 @@
                   						    <div class="clear"></div>
     										<img data-bind="attr:{ src: '/content/users/' + latestDeployToAccept().triggeredBy() + '.jpg' }" onerror='this.style.display = "none"' />
                                             <img data-bind="attr:{ src: '/content/users/' + latestDeployToAccept().triggeredBy() + '.png' }" onerror='this.style.display = "none"' />   
-                                            <img data-bind="attr:{ src: '/content/users/' + latestDeployToAccept().triggeredBy() + '.gif' }" onerror='this.style.display = "none"' />
+                                            <img data-bind="attr:{ src: '/content/users/' + latestDeployToAccept().triggeredBy() + '.gif' }" onerror='this.style.display = "none"'  />
                         					<!-- ko if: latestDeployToAccept().status() == "FAILURE"-->
                         				    	Reason for failure:
                         						<div class="build-failReason" data-bind="text: latestDeployToAccept().statusText"></div>
@@ -133,7 +139,7 @@
                 <div class="topRight-title" data-bind="text: topRightTitle"></div>
                 <div class="topRight-panel">
                     <!-- ko if: latestDeployToDev() != null -->
-    					<!-- ko if: !latestDeployToDev().triggeredBy() -->
+    					<!-- ko if: !Settings.enableUserImages -->
                             <ul>
                                 <ul>
                                     <li data-bind="attr: { class: latestDeployToDev().lowerStatus() + ' ' + latestDeployToDev().lowerStatus() + randomClass3()}">
@@ -146,6 +152,9 @@
                                             <!-- ko if: latestDeployToDev().hasProgress() -->
                                                 <div class="progress-container" data-bind="attr: { 'data-progress' : latestDeployToDev().percentageComplete() }"></div>
                                             <!-- /ko -->
+                                            Triggered by:
+                                            <div class="build-type" data-bind="text: latestDeployToDev().triggeredBy()"></div>
+                                            <div class="clear"></div>
                                             <!-- ko if: latestDeployToDev().status() == "FAILURE" -->
                                                 Reason for failure:
                                                 <div class="build-failReason" data-bind="text: latestDeployToDev().statusText"></div>
@@ -156,10 +165,11 @@
                                 </ul>
                             </ul>
                         <!-- /ko -->      
-    					<!-- ko if: latestDeployToDev().triggeredBy() -->
+    					<!-- ko if: Settings.enableUserImages -->
         					<ul>
                                 <ul>
                                     <li data-bind="attr: { class: latestDeployToDev().lowerStatus() + ' ' + latestDeployToDev().lowerStatus() + ' ' + latestDeployToDev().triggeredBy() }">
+                                    
                                         <div>
                                             <div class="build-branch" data-bind="text: latestDeployToDev().description"></div>
                                             <div class="build-type" data-bind="text: latestDeployToDev().buildType.name"></div>
@@ -192,7 +202,7 @@
                 <div class="bottomRight-title" data-bind="text: bottomRightTitle"></div>
                 <div class="bottomRight-panel">
                     <!-- ko if: latestSelenium() != null -->
-    					<!-- ko if: !latestSelenium().triggeredBy() -->
+    					<!-- ko if: !Settings.enableUserImages -->
                             <ul>
                                 <ul>
                                     <!-- ko if: latestSelenium().status() == "FAILURE" -->
@@ -206,6 +216,9 @@
                                                 <!-- ko if: latestSelenium().hasProgress() -->
                                                     <div class="progress-container" data-bind="attr: { 'data-progress' : latestSelenium().percentageComplete() }"></div>
                                                 <!-- /ko -->
+                                                Triggered by:
+                                                <div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
+                                                <div class="clear"></div>
                                                 Reason for failure:
                                                 <div class="build-failReason" data-bind="text: latestSelenium().statusText"></div>
                                                 <div class="clear"></div>
@@ -223,13 +236,16 @@
                                                 <!-- ko if: latestSelenium().hasProgress() -->
                                                     <div class="progress-container" data-bind="attr: { 'data-progress' : latestSelenium().percentageComplete() }"></div>
                                                 <!-- /ko -->
+                                                Triggered by:
+                                                <div class="build-type" data-bind="text: latestSelenium().triggeredBy()"></div>
+                                                <div class="clear"></div>
                                             </div> 
                                         </li>
                                     <!-- /ko -->
                                 </ul>
                             </ul>
                         <!-- /ko -->    
-    					<!-- ko if: latestSelenium().triggeredBy() -->
+    					<!-- ko if: Settings.enableUserImages -->
     					    <ul>
                                 <ul>
                                     <!-- ko if: latestSelenium().status() == "FAILURE" -->

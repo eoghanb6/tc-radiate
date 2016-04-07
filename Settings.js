@@ -1,6 +1,6 @@
 ﻿var Settings = {
     //The url that points to the team city project
-    teamCityUrl: 'Insert TeamCity URL here',
+    teamCityUrl: 'https://ci-cs.entapps.co',
 
     //The main branch to show the build status (leave blank if unsure)
     mainBranch: '',
@@ -18,25 +18,28 @@
 
     //use this to stop the screen from updating automatically e.g. if you manually refresh it.
     enableAutoUpdate: true,
+
+    //Enable user images (If enabled, put user images in content/user folder)
+    enableUserImages: false,
 }
 
 //CUSTOMISATION
 //Changes titles above build panels
-topLeftTitle          = 'Insert title here';
-topRightTitle         = 'Insert title here';
-bottomLeftTitle       = 'Insert title here';
-bottomRightTitle      = 'Insert title here';
+topLeftTitle          = 'Compile/Build/Unit Testing';
+topRightTitle         = 'Deploy to Development';
+bottomLeftTitle       = 'Deploy to Accept';
+bottomRightTitle      = 'Execute Selenium Tests';
 
 //Need to be changed according to the ID of each build type you want displayed (Needs to be obtained from the API. The list of all of the build ID's on your project 
 //can be found from the following link: *YourTeamCityProjectURL*/guestAuth/app/rest/buildTypes ).
 //Alternatively, you can click into the type of build you want displyed from your TeamCity project page and copying the part of the url after '/viewType.html?buildTypeId='.
-topLeftPanelID        = 'Insert build ID here';
-topRightPanelID       = 'Insert build ID here';
-bottomLeftPanelID     = 'Insert build ID here';
-bottomRightPanelID    = 'Insert build ID here';
+topLeftPanelID        = 'CompileAndUnitTests_CompileAndBuild';
+topRightPanelID       = 'DeployToDevelopment_DeployToDevelopment';
+bottomLeftPanelID     = 'DeployToAccept_DeployToAccept';
+bottomRightPanelID    = 'DeployToAccept_ExecuteSeleniumTests';
 
 //How many builds are shown in the history panel
-numberOfHistoryBuilds = 6;
+numberOfHistoryBuilds = 5;
 
 
 //Allow the settings to be overridden by querystring parameters
