@@ -33,8 +33,8 @@ Setting up IIS
 
 General Information
 -------------------
-If an image with a users username has not be placed in the Content/users folder in jpg, png or gif format, then no image will be displayed when that user triggers a test. 
+If an image with a users username has not be placed in the Content/users folder in jpg, png or gif format, and "enableUserImages" is true in settings, then no image will be displayed when that user triggers a test. 
 
-A user image will only appear when someone has triggered the test or made the most recent commit to GitHub; otherwise a random meme will appear.
+A user image will only appear when someone has triggered the test or made the most recent commit to Git. If "enableUserImages" is false in settings, it will display random memes.
 
 A reason for failure will only appear when a test has failed, although it only displays the status text of the test, so may not always give a sensible reason for failure. 
